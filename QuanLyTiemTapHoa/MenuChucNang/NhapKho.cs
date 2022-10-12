@@ -18,8 +18,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         SqlConnection cnn = KetNoiCoSoDuLieu.cnn;
         SqlCommand command = new SqlCommand();
-        string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-        // string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        //string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
@@ -123,10 +123,22 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         public void Delete()
         {
-            command = cnn.CreateCommand();
-            command.CommandText = "delete from NhapKho where MaSP = '" + txtMaSP.Text + "'";
-            command.ExecuteNonQuery();
-            loadData();
+            if(cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+                command = cnn.CreateCommand();
+                command.CommandText = "delete from NhapKho where MaSP = '" + txtMaSP.Text + "'";
+                command.ExecuteNonQuery();
+                loadData();
+            }
+            else
+            {
+                command = cnn.CreateCommand();
+                command.CommandText = "delete from NhapKho where MaSP = '" + txtMaSP.Text + "'";
+                command.ExecuteNonQuery();
+                loadData();
+            }
+            
         }
         public void Update()
         {
@@ -139,10 +151,22 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             int dv = cmbDonVi.SelectedIndex + 1;
             int ncc = cmbNcc.SelectedIndex + 1;
             string nn = dtpNgayNhap.Value.ToString("yyyy-MM-dd");
-            command = cnn.CreateCommand();
-            command.CommandText = "update NhapKho set TenSP = N'" + tensp + "',SoLuong = '" + sl + "',MaDV = '" + dv + "',GiaNhap = '" + gn + "',GiaBan = '" + gb + "',MaNV = '" + manv + "',NgayNhap = '" + nn + "',MaNCC = '" + ncc + "' where MaSP = '" + ma + "'";
-            command.ExecuteNonQuery();
-            loadData();
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+                command = cnn.CreateCommand();
+                command.CommandText = "update NhapKho set TenSP = N'" + tensp + "',SoLuong = '" + sl + "',MaDV = '" + dv + "',GiaNhap = '" + gn + "',GiaBan = '" + gb + "',MaNV = '" + manv + "',NgayNhap = '" + nn + "',MaNCC = '" + ncc + "' where MaSP = '" + ma + "'";
+                command.ExecuteNonQuery();
+                loadData();
+            }
+            else
+            {
+                command = cnn.CreateCommand();
+                command.CommandText = "update NhapKho set TenSP = N'" + tensp + "',SoLuong = '" + sl + "',MaDV = '" + dv + "',GiaNhap = '" + gn + "',GiaBan = '" + gb + "',MaNV = '" + manv + "',NgayNhap = '" + nn + "',MaNCC = '" + ncc + "' where MaSP = '" + ma + "'";
+                command.ExecuteNonQuery();
+                loadData();
+            }
+            
         }
 
         #endregion
