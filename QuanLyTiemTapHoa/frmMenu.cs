@@ -13,6 +13,7 @@ namespace QuanLyTiemTapHoa
 {
     public partial class frmMenu : Form
     {
+        //hello world
         string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
 
         //SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
