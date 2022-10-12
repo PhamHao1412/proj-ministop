@@ -143,6 +143,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         public void Update()
         {
             //Moi check cung ok do 
+            // tao commit do , thay khong ?
             string ma = txtMaSP.Text;
             string manv = txtMaNV.Text;
             string tensp = txtTenSP.Text;
