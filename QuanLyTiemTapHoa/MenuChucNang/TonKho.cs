@@ -37,6 +37,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             adapter.Fill(table);
             dtgvTonKho.DataSource = table;
         }
+
         void AddCmbDonVi()
         {
             cnn = new SqlConnection(str);

@@ -56,16 +56,18 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             if (cnn.State == ConnectionState.Closed)
             {
-                string sql = " select MaHD from HoaDon where MaHD = '" + txtMaHD + "'";
+                string sql = " select MaHD from HoaDon where MaHD = '" + txtMaHD.Text + "'";
                 if(ChucNang.CheckKey(sql))
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show("Mã bạn tạo đã tồn tại\nVui lòng nhập mã khác","Thông báo");
+                    txtMaHD.Text = txtKH.Text = "";
                 }
                 else
                 {
                     cnn.Open();
+                    string nl = dtpNgayLap.Value.ToString("yyyy-MM-dd");
                     command = cnn.CreateCommand();
-                    command.CommandText = "insert into HoaDon(MaHD,NgayLap,MaNV,MaKH) values('" + txtMaHD.Text + "','" + dateTimeNgayLap.Value + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
+                    command.CommandText = "insert into HoaDon(MaHD,NgayLap,MaNV,MaKH) values('" + txtMaHD.Text + "','" + nl + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
                     command.ExecuteNonQuery();
                     loadData();
                 }
@@ -81,7 +83,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 else
                 {
                     command = cnn.CreateCommand();
-                    command.CommandText = "insert into HoaDon values('" + txtMaHD.Text + "','" + dateTimeNgayLap.Value + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
+                    command.CommandText = "insert into HoaDon values('" + txtMaHD.Text + "','" + dtpNgayLap.Value + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
                     command.ExecuteNonQuery();
                     loadData();
                 }
@@ -102,7 +104,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             cnn = new SqlConnection(str);
             cnn.Open();
             command = cnn.CreateCommand();
-            command.CommandText = "update HoaDon set NgayLap = '" + dateTimeNgayLap.Value + "',MaKH = '" + txtKH.Text + "'where MaHD = '" + txtMaHD.Text + "'";
+            command.CommandText = "update HoaDon set NgayLap = '" + dtpNgayLap.Value + "',MaKH = '" + txtKH.Text + "'where MaHD = '" + txtMaHD.Text + "'";
             command.ExecuteNonQuery();
             loadData();
         }
@@ -154,7 +156,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             int i;
             i = dgvHD.CurrentRow.Index;
             txtMaHD.Text = dgvHD.Rows[i].Cells[0].Value.ToString();
-            dateTimeNgayLap.Text = dgvHD.Rows[i].Cells[1].Value.ToString();
+            dtpNgayLap.Text = dgvHD.Rows[i].Cells[1].Value.ToString();
             txtMaNV.Text = dgvHD.Rows[i].Cells[2].Value.ToString();
             //txtTenNV.Text = dgvHD.Rows[i].Cells[3].ToString();
             txtKH.Text = dgvHD.Rows[i].Cells[3].Value.ToString();

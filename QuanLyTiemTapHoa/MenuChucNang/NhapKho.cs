@@ -18,8 +18,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         SqlConnection cnn = KetNoiCoSoDuLieu.cnn;
         SqlCommand command = new SqlCommand();
-        //string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        //string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
@@ -84,41 +84,62 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             adapter.Fill(dt);
             cmbNcc.DataSource = dt;
         }
+        private int GetSelectedRow(string MaSP)
+        {
+            for (int i = 0; i < dtgvWarehouse.Rows.Count; i++)
+            {
+                if (dtgvWarehouse.Rows[i].Cells[0].Value.ToString() == MaSP)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         public void Add()
         {
-            if(cnn.State== ConnectionState.Closed)
+        
+            if (table.Rows.Count > 0)
             {
-                cnn.Open();
-                string ma = txtMaSP.Text;
-                string tensp = txtTenSP.Text;
-                string sl = txtSL.Text;
-                string gn = txtGiaNhap.Text;
-                string gb = txtGiaBan.Text;
-                string manv = txtMaNV.Text;
-                int dv = cmbDonVi.SelectedIndex + 1;
-                int ncc = cmbNcc.SelectedIndex + 1;
-                string nn = dtpNgayNhap.Value.ToString("yyyy-MM-dd");
-                command = cnn.CreateCommand();
-                command.CommandText = "Insert into NhapKho values('" + ma + "',N'" + tensp + "','" + sl + "','" + dv + "','" + gn + "','" + gb + "','" + manv + "','" + nn + "','" + ncc + "')";
-                command.ExecuteNonQuery();
-                loadData();
+                int selectedRows = GetSelectedRow(txtMaSP.Text);
+                int sl = Convert.ToInt32(table.Rows[selectedRows]["SoLuong"].ToString());
+                int kq = sl + Convert.ToInt32(txtSL.Text);
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                    command = cnn.CreateCommand();
+                    command.CommandText = "Update NhapKho set SoLuong = '" + kq + "' Where MaSP = '" + txtMaSP.Text + "'";
+                    command.ExecuteNonQuery();
+                    loadData(); 
+                }
+                else
+                {
+                    command = cnn.CreateCommand();
+                    command.CommandText = "Update NhapKho set SoLuong = '" + kq + "' Where MaSP = '" + txtMaSP.Text + "'";
+                    command.ExecuteNonQuery();
+                    loadData();
+                }
             }
             else
             {
-                string ma = txtMaSP.Text;
-                string tensp = txtTenSP.Text;
-                string sl = txtSL.Text;
-                string gn = txtGiaNhap.Text;
-                string gb = txtGiaBan.Text;
-                string manv = txtMaNV.Text;
-                int dv = cmbDonVi.SelectedIndex + 1;
-                int ncc = cmbNcc.SelectedIndex + 1;
                 string nn = dtpNgayNhap.Value.ToString("yyyy-MM-dd");
-                command = cnn.CreateCommand();
-                command.CommandText = "Insert into NhapKho values('" + ma + "',N'" + tensp + "','" + sl + "','" + dv + "','" + gn + "','" + gb + "','" + manv + "','" + nn + "','" + ncc + "')";
-                command.ExecuteNonQuery();
-                loadData();
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                    command = cnn.CreateCommand();
+                    command.CommandText = "Insert into NhapKho values('" + txtMaSP.Text + "',N'" + txtTenSP.Text + "','" + txtSL.Text + "','" + (cmbDonVi.SelectedIndex + 1) + "','" + txtGiaNhap.Text + "','" + txtGiaBan.Text + "','" + txtMaNV.Text + "','" + nn + "','" + (cmbNcc.SelectedIndex + 1) + "')";
+                    command.ExecuteNonQuery();
+                    loadData();
+                }
+
+                else
+                {
+                    command = cnn.CreateCommand();
+                    command.CommandText = "Insert into NhapKho values('" + txtMaSP.Text + "',N'" + txtTenSP.Text + "','" + txtSL.Text + "','" + (cmbDonVi.SelectedIndex + 1) + "','" + txtGiaNhap.Text + "','" + txtGiaBan.Text + "','" + txtMaNV.Text + "','" + nn + "','" + (cmbNcc.SelectedIndex + 1) + "')";
+                    command.ExecuteNonQuery();
+                    loadData();
+                }
             }
+           
             
         }
         public void Delete()
