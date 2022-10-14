@@ -18,8 +18,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         #region Global Varibles
         SqlConnection cnn = KetNoiCoSoDuLieu.cnn;
         SqlCommand command;
-        string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-       // string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        //string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         public TonKho()
@@ -31,13 +31,12 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         void LoadData()
         {
             command = cnn.CreateCommand();
-            command.CommandText = "select MaSP,TenSP,SoLuong,TenDV,GiaNhap,GiaBan,TenNCC from NhapKho n, NhaCungCap c,DonViSP d where n.MaNCC = c.MaNCC and n.MaDV= d.MaDV ";
+            command.CommandText = "select MaSP,TenSP,SoLuong,MaDV,GiaNhap,GiaBan,MaNCC from TonKho";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
             dtgvTonKho.DataSource = table;
         }
-
         void AddCmbDonVi()
         {
             cnn = new SqlConnection(str);
@@ -79,7 +78,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         void Delete()
         {
             command = cnn.CreateCommand();
-            command.CommandText = "delete from NhapKho where MaSP = '" + txtMaSP.Text + "'";
+            command.CommandText = "delete from TonKho where MaSP = '" + txtMaSP.Text + "'";
             command.ExecuteNonQuery();
             LoadData();
         }
@@ -94,7 +93,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             int dv = cmbDonVi.SelectedIndex + 1;
             int ncc = cmbNCC.SelectedIndex + 1;
             command = cnn.CreateCommand();
-            command.CommandText = "update NhapKho set TenSP = N'" + tensp + "',SoLuong = '" + sl + "',MaDV = '" + dv + "',GiaNhap = '" + gn + "',GiaBan = '" + gb + "',MaNCC = '" + ncc + "' where MaSP = '" + ma + "'";
+            command.CommandText = "update TonKho set TenSP = N'" + tensp + "',SoLuong = '" + sl + "',MaDV = '" + dv + "',GiaNhap = '" + gn + "',GiaBan = '" + gb + "',MaNCC = '" + ncc + "' where MaSP = '" + ma + "'";
             command.ExecuteNonQuery();
             LoadData();
         }

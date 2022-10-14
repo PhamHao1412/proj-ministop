@@ -14,8 +14,8 @@ namespace QuanLyTiemTapHoa
     public partial class frmMenu : Form
     {
         //hello world
-        SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
-        //SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
+        //SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
+        SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();

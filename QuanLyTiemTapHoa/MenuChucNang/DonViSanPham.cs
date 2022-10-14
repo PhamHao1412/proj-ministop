@@ -19,10 +19,12 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
+
         public DonViSanPham()
         {
             InitializeComponent();
         }
+
         void loadData()
         {
             command = cnn.CreateCommand();
@@ -32,6 +34,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             adapter.Fill(table);
             dgvDonViSP.DataSource = table;
         }
+
         void Add()
         {
             command = cnn.CreateCommand();
@@ -39,6 +42,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command.ExecuteNonQuery();
             loadData();
         }
+
         public void Delete()
         {
             command = cnn.CreateCommand();
@@ -46,6 +50,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command.ExecuteNonQuery();
             loadData();
         }
+
         public void Update()
         {
             command = cnn.CreateCommand();
@@ -53,6 +58,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command.ExecuteNonQuery();
             loadData();
         }
+
         private void DonViSanPham_Load(object sender, EventArgs e)
         {
             cnn = new SqlConnection(str);

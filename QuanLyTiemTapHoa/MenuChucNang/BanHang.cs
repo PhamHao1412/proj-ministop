@@ -15,8 +15,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
     {
         SqlConnection cnn ;
         SqlCommand command = new SqlCommand();
-        //   string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-        string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
+        //string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
 
 
         SqlDataAdapter adapter = new SqlDataAdapter();
