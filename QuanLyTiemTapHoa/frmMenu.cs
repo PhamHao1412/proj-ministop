@@ -13,9 +13,7 @@ namespace QuanLyTiemTapHoa
 {
     public partial class frmMenu : Form
     {
-        //hello world
-        //SqlConnection cnn = new SqlConnection(@"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
-        SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
+        SqlConnection cnn = classConnect.connect;
         SqlCommand cmd = new SqlCommand();
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -28,7 +26,8 @@ namespace QuanLyTiemTapHoa
         }
         public void loadData()
         {
-            cnn.Open();
+            if(cnn.State == ConnectionState.Closed)
+                cnn.Open();
             cmd.CommandText = "select MaNV,TenNV from NhanVien ";
             cmd.Connection = cnn;
             reader = cmd.ExecuteReader();
@@ -53,8 +52,7 @@ namespace QuanLyTiemTapHoa
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            String.Format("");
-            timer1.Start();
+            lbTime.Text = string.Format("Ngày: {0}\nGiờ: {1}",DateTime.Now.ToString("dd/MM/yyyy"),DateTime.Now.ToString("hh:mm:ss"));
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
@@ -116,6 +114,7 @@ namespace QuanLyTiemTapHoa
         private void frmMenu_Load(object sender, EventArgs e)
         {
             loadData();
+            timer1.Start();
         }
     }
 }

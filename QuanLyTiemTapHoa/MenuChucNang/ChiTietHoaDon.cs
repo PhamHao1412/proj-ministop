@@ -13,9 +13,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class ChiTietHoaDon : Form
     {
-        SqlConnection cnn;
+        SqlConnection cnn = classConnect.connect;
         SqlCommand command = new SqlCommand();
-        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
@@ -57,7 +56,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void Delete()
         {
-            cnn = new SqlConnection(str);
             cnn.Open();
             command = cnn.CreateCommand();
             command.CommandText = "delete from CTHD where MaSP = '" + txtMaSP.Text + "'";
@@ -67,7 +65,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         void loadHD()
         {
             command = cnn.CreateCommand();
-            command.CommandText = "select MaHD[Mã hóa đơn] , MaSP[Mã sản phẩm] , TenSP[Tên sản phẩm] , SoLuong[Số lượng] ,TenDV[Đơn vị] ,DonGia[Đơn giá] , GiamGia[Giảm giá] , ThanhTien[Thành tiền]  from CTHD,DonViSP where MaHD = '"+txtMaHD.Text+ "'and DonViSP.MaDV = CTHD.MaDV";
+            command.CommandText = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm] , TenSP[Tên sản phẩm] , SoLuong[Số lượng] ,TenDV[Đơn vị] ,DonGia[Đơn giá] , GiamGia[Giảm giá] , ThanhTien[Thành tiền]  from CTHD,DonViSP where MaHD = '"+txtMaHD.Text+ "'and DonViSP.MaDV = CTHD.MaDV";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -75,6 +73,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void Search()
         {
+            cnn.Close();
+            cnn.Open();
             command.CommandText = "select TenSP,TenDV,GiaBan from NhapKho,DonViSP where NhapKho.MaDV = DonViSP.MaDV and MaSP='"+txtMaSP.Text+"'";
             command.Connection = cnn;
             reader = command.ExecuteReader();
@@ -95,7 +95,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         private void ChiTietHoaDon_Load(object sender, EventArgs e)
         {
-            cnn = new SqlConnection(str);
             cnn.Open();
             string sql = "select TenDV from DonViSP";
             SqlCommand cmd = new SqlCommand(sql, cnn);
@@ -109,19 +108,14 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            cnn = new SqlConnection(str);
-            cnn.Open();
             Search();
             cnn.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            cnn = new SqlConnection(str);
             cnn.Open();
             Add();
-            //cnn.Close();
-            //loadHD();
             decimal total ;
             total = Convert.ToDecimal(txtTongCong.Text) + Convert.ToDecimal(txtThanhTien.Text);
             txtTongCong.Text = Convert.ToString(total);

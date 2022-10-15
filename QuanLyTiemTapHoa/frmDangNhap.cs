@@ -13,25 +13,17 @@ namespace QuanLyTiemTapHoa
 {
     public partial class frmDangNhap : Form
     {
-        SqlConnection cnn = KetNoiCoSoDuLieu.cnn;
+        SqlConnection connect = classConnect.connect;
         public frmDangNhap()
         {
             InitializeComponent();
         }
         public static string TenTK = "";
-        public void connectDatabase()
-        {
-
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(cnn.State != ConnectionState.Open)
-            {
-                cnn.Open();
-            }
-
+            if(connect.State == ConnectionState.Closed)
+                connect.Open();
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bạn có muốn thoát không ? ", "Thông báo", MessageBoxButtons.YesNo);
@@ -45,7 +37,7 @@ namespace QuanLyTiemTapHoa
         {
             TenTK = txtTaiKhoan.Text;
             string sql = "select * from TaiKhoan where TenTK='" + txtTaiKhoan.Text + "' and MatKhau='" + txtMatKhau.Text + "'";
-            SqlDataAdapter sqldata = new SqlDataAdapter(sql,cnn);
+            SqlDataAdapter sqldata = new SqlDataAdapter(sql,connect);
             DataTable datatable = new DataTable();
             sqldata.Fill(datatable);
             if(datatable.Rows.Count == 1)

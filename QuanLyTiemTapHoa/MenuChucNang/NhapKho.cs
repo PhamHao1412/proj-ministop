@@ -16,13 +16,15 @@ namespace QuanLyTiemTapHoa.MenuChucNang
     {
         #region Global Varibles
 
-        SqlConnection cnn = KetNoiCoSoDuLieu.cnn;
+        SqlConnection cnn = classConnect.connect;
         SqlCommand command = new SqlCommand();
-        //string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
+        SqlCommand command1 = new SqlCommand();
+        SqlDataAdapter adapter1 = new SqlDataAdapter();
+        DataTable table1 = new DataTable();
+        
         public static string manv = "";
         public static string tennv = "";
         public NhapKho()
@@ -47,30 +49,32 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 temp = true;
             }
             if (temp == false)
-                MessageBox.Show("Không tìm thấy");
+                MessageBox.Show("Không tìm thấy"); 
+
+        }
+        void loadDataGirdViewWareHouse()
+        {
             cnn.Close();
             command = cnn.CreateCommand();
-            command.CommandText = "select MaSP,TenSP,SoLuong,TenDV,GiaNhap,GiaBan,MaNV,NgayNhap,TenNCC from NhapKho n, NhaCungCap c ,DonViSP d where n.MaNCC = c.MaNCC and n.MaDV=d.MaDV";
+            command.CommandText = "select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],MaNV[Mã nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho n, NhaCungCap c ,DonViSP d where n.MaNCC = c.MaNCC and n.MaDV=d.MaDV";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
             dtgvWarehouse.DataSource = table;
             groupBox1.Enabled = false;
-
-            command = cnn.CreateCommand();
-            command.CommandText = "select MaSP,TenSP,SoLuong,MaDV,GiaNhap,GiaBan,MaNCC from TonKho";
-            adapter.SelectCommand = command;
-            table.Clear();
-            adapter.Fill(table);
-            dgvTonKho.DataSource = table;
-            groupBox1.Enabled = false;
+        }
+        void loadDataGirdViewInventory()
+        {
+            cnn.Close();
+            command1 = cnn.CreateCommand();
+            command1.CommandText = "select MaSP[Mã sản phẩm tồn kho],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho t,NhaCungCap n,DonViSP d where t.MaDV=d.MaDV and n.MaNCC=t.MaNCC";
+            adapter1.SelectCommand = command1;
+            table1.Clear();
+            adapter1.Fill(table1);
+            dgvTonKho.DataSource = table1;
         }
         void AddCmbDonVi()
         {
-            //nut luu
-            cnn = new SqlConnection(str);
-            cnn.Open();
-            //kết nối vào chức vụ
             string sql = "select TenDV from DonViSP";
             SqlCommand cmd = new SqlCommand(sql, cnn);
             cmbDonVi.DisplayMember = "TenDV";
@@ -81,9 +85,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void AddCmbNcc()
         {
-            cnn = new SqlConnection(str);
-            cnn.Open();
-            //kết nối vào chức vụ
             string sql = "select TenNCC from NhaCungCap";
             SqlCommand cmd = new SqlCommand(sql, cnn);
             cmbNcc.DisplayMember = "TenNCC";
@@ -126,7 +127,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                     command = cnn.CreateCommand();
                     command.CommandText = "Insert into NhapKho values('" + txtMaSP.Text + "',N'" + txtTenSP.Text + "','" + txtSL.Text + "','" + (cmbDonVi.SelectedIndex + 1) + "','" + txtGiaNhap.Text + "','" + txtGiaBan.Text + "','" + txtMaNV.Text + "','" + nn + "','" + (cmbNcc.SelectedIndex + 1) + "')";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewWareHouse();
                 }
 
                 else
@@ -134,27 +135,27 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                     command = cnn.CreateCommand();
                     command.CommandText = "Insert into NhapKho values('" + txtMaSP.Text + "',N'" + txtTenSP.Text + "','" + txtSL.Text + "','" + (cmbDonVi.SelectedIndex + 1) + "','" + txtGiaNhap.Text + "','" + txtGiaBan.Text + "','" + txtMaNV.Text + "','" + nn + "','" + (cmbNcc.SelectedIndex + 1) + "')";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewWareHouse();
                 }
             }
             else
             {
-                int sl = Convert.ToInt32(table.Rows[selectedRowsNhapKho]["SoLuong"].ToString());
-                int kq = sl + Convert.ToInt32(txtSL.Text);
+                int soluongNhapKho = Convert.ToInt32(table.Rows[selectedRowsNhapKho]["Số lượng"].ToString());
+                int tongNhapKho = soluongNhapKho + Convert.ToInt32(txtSL.Text);
                 if (cnn.State == ConnectionState.Closed)
                 {
                     cnn.Open();
                     command = cnn.CreateCommand();
-                    command.CommandText = "Update NhapKho set SoLuong = '" + kq + "' Where MaSP = '" + txtMaSP.Text + "'";
+                    command.CommandText = "Update NhapKho set SoLuong = '" + tongNhapKho + "' Where MaSP = '" + txtMaSP.Text + "'";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewWareHouse();
                 }
                 else
                 {
                     command = cnn.CreateCommand();
-                    command.CommandText = "Update NhapKho set SoLuong = '" + kq + "' Where MaSP = '" + txtMaSP.Text + "'";
+                    command.CommandText = "Update NhapKho set SoLuong = '" + tongNhapKho + "' Where MaSP = '" + txtMaSP.Text + "'";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewWareHouse();
                 }
             }  
         }
@@ -177,7 +178,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                     command = cnn.CreateCommand();
                     command.CommandText = "Insert into TonKho values('" + ma + "',N'" + tensp + "','" + sl + "','" + dv + "','" + gn + "','" + gb + "','" + ncc + "')";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewInventory();
                 }
 
                 else
@@ -185,27 +186,27 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                     command = cnn.CreateCommand();
                     command.CommandText = "Insert into TonKho values('" + ma + "',N'" + tensp + "','" + sl + "','" + dv + "','" + gn + "','" + gb + "','" + ncc + "')";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewInventory();
                 }
             }
             else
             {
-                int sltonkho = Convert.ToInt32(table.Rows[selectedRowsTonKho]["SoLuong"].ToString());
-                int kq = sltonkho + Convert.ToInt32(txtSL.Text);
+                int soluongTonKho = Convert.ToInt32(table1.Rows[selectedRowsTonKho]["Số lượng"].ToString());
+                int tongTonKho = soluongTonKho + Convert.ToInt32(txtSL.Text);
                 if (cnn.State == ConnectionState.Closed)
                 {
                     cnn.Open();
                     command = cnn.CreateCommand();
-                    command.CommandText = "Update TonKho set SoLuong = '" + kq + "' Where MaSP = '" + txtMaSP.Text + "'";
+                    command.CommandText = "Update TonKho set SoLuong = '" + tongTonKho + "' Where MaSP = '" + txtMaSP.Text + "'";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewInventory();
                 }
                 else
                 {
                     command = cnn.CreateCommand();
-                    command.CommandText = "Update TonKho set SoLuong = '" + kq + "' Where MaSP = '" + txtMaSP.Text + "'";
+                    command.CommandText = "Update TonKho set SoLuong = '" + tongTonKho + "' Where MaSP = '" + txtMaSP.Text + "'";
                     command.ExecuteNonQuery();
-                    loadData();
+                    loadDataGirdViewInventory();
                 } 
             }
         }
@@ -217,14 +218,14 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 command = cnn.CreateCommand();
                 command.CommandText = "delete from NhapKho where MaSP = '" + txtMaSP.Text + "'";
                 command.ExecuteNonQuery();
-                loadData();
+                loadDataGirdViewWareHouse();
             }
             else
             {
                 command = cnn.CreateCommand();
                 command.CommandText = "delete from NhapKho where MaSP = '" + txtMaSP.Text + "'";
                 command.ExecuteNonQuery();
-                loadData();
+                loadDataGirdViewWareHouse();
             }
             
         }
@@ -247,14 +248,14 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 command = cnn.CreateCommand();
                 command.CommandText = "update NhapKho set TenSP = N'" + tensp + "',SoLuong = '" + sl + "',MaDV = '" + dv + "',GiaNhap = '" + gn + "',GiaBan = '" + gb + "',MaNV = '" + manv + "',NgayNhap = '" + nn + "',MaNCC = '" + ncc + "' where MaSP = '" + ma + "'";
                 command.ExecuteNonQuery();
-                loadData();
+                loadDataGirdViewWareHouse();
             }
             else
             {
                 command = cnn.CreateCommand();
                 command.CommandText = "update NhapKho set TenSP = N'" + tensp + "',SoLuong = '" + sl + "',MaDV = '" + dv + "',GiaNhap = '" + gn + "',GiaBan = '" + gb + "',MaNV = '" + manv + "',NgayNhap = '" + nn + "',MaNCC = '" + ncc + "' where MaSP = '" + ma + "'";
                 command.ExecuteNonQuery();
-                loadData();
+                loadDataGirdViewWareHouse();
             }
             
         }
@@ -280,16 +281,21 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             Update();
         }
-        private void NhapKho_Load_1(object sender, EventArgs e)
+
+        private void NhapKho_Load(object sender, EventArgs e)
         {
             dgvTonKho.Hide();
+            cnn = new SqlConnection(classConnect.sql);
+            cnn.Open();
             AddCmbDonVi();
             AddCmbNcc();
             loadData();
+            loadDataGirdViewWareHouse();
+            loadDataGirdViewInventory();
             txtMaNV.Focus();
         }
 
-        private void dtgvWarehouse_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dtgvWarehouse_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMaSP.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[0].Value?.ToString();
             txtTenSP.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[1].Value?.ToString();
@@ -302,13 +308,14 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             cmbNcc.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[8].Value?.ToString();
         }
 
-        private void btnTonKho_Click_1(object sender, EventArgs e)
+        private void btnTonKho_Click(object sender, EventArgs e)
         {
             MenuChucNang.TonKho frtk = new MenuChucNang.TonKho();
             this.Hide();
             frtk.ShowDialog();
 
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             addNhapKho();
@@ -316,9 +323,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             btnAdd.Enabled = false;
             btnDel.Enabled = false;
             btnUpdate.Enabled = false;
-
-
-
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

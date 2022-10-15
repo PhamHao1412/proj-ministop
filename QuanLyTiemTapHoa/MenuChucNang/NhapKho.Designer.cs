@@ -261,7 +261,7 @@
             this.dtgvWarehouse.RowHeadersWidth = 51;
             this.dtgvWarehouse.Size = new System.Drawing.Size(810, 211);
             this.dtgvWarehouse.TabIndex = 8;
-            this.dtgvWarehouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvWarehouse_CellClick_1);
+            this.dtgvWarehouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvWarehouse_CellClick);
             // 
             // btnAdd
             // 
@@ -301,7 +301,7 @@
             this.btnTonKho.TabIndex = 12;
             this.btnTonKho.Text = "Tồn kho";
             this.btnTonKho.UseVisualStyleBackColor = true;
-            this.btnTonKho.Click += new System.EventHandler(this.btnTonKho_Click_1);
+            this.btnTonKho.Click += new System.EventHandler(this.btnTonKho_Click);
             // 
             // btnMenu
             // 
@@ -411,7 +411,7 @@
             this.Controls.Add(this.label7);
             this.Name = "NhapKho";
             this.Text = "Nhập kho";
-            this.Load += new System.EventHandler(this.NhapKho_Load_1);
+            this.Load += new System.EventHandler(this.NhapKho_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvWarehouse)).EndInit();

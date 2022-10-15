@@ -16,10 +16,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
     public partial class TonKho : Form
     {
         #region Global Varibles
-        SqlConnection cnn = KetNoiCoSoDuLieu.cnn;
+        SqlConnection cnn = classConnect.connect;
         SqlCommand command;
-        //string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         public TonKho()
@@ -31,7 +29,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         void LoadData()
         {
             command = cnn.CreateCommand();
-            command.CommandText = "select MaSP,TenSP,SoLuong,MaDV,GiaNhap,GiaBan,MaNCC from TonKho";
+            command.CommandText = "select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho t,DonViSP d,NhaCungCap n where t.MaDV=d.MaDV and t.MaNCC=n.MaNCC";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -39,8 +37,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void AddCmbDonVi()
         {
-            cnn = new SqlConnection(str);
-            cnn.Open();
+            if (cnn.State == ConnectionState.Closed)
+                cnn.Open();
             string sql = "select TenDV from DonViSP";
             SqlCommand cmd = new SqlCommand(sql, cnn);
             cmbDonVi.DisplayMember = "TenDV";
@@ -51,8 +49,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void AddCmbNcc()
         {
-            cnn = new SqlConnection(str);
-            cnn.Open();
+            if(cnn.State == ConnectionState.Closed)
+                cnn.Open();
             string sql = "select TenNCC from NhaCungCap";
             SqlCommand cmd = new SqlCommand(sql, cnn);
             cmbNCC.DisplayMember = "TenNCC";

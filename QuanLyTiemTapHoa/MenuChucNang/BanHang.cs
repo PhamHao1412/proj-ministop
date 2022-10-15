@@ -13,12 +13,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class BanHang : Form
     {
-        SqlConnection cnn ;
+        SqlConnection cnn = classConnect.connect;
         SqlCommand command = new SqlCommand();
-        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-        //string str = @"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
-
-
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
@@ -92,7 +88,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void Delete()
         {
-            cnn = new SqlConnection(str);
+            cnn = new SqlConnection(classConnect.sql);
             cnn.Open();
             command = cnn.CreateCommand();
             command.CommandText = "delete from HoaDon where MaHD = '" + txtMaHD.Text + "'";
@@ -101,7 +97,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void update()
         {
-            cnn = new SqlConnection(str);
+            cnn = new SqlConnection(classConnect.sql);
             cnn.Open();
             command = cnn.CreateCommand();
             command.CommandText = "update HoaDon set NgayLap = '" + dtpNgayLap.Value + "',MaKH = '" + txtKH.Text + "'where MaHD = '" + txtMaHD.Text + "'";
@@ -125,7 +121,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void BanHang_Load(object sender, EventArgs e)
         {
-            cnn = new SqlConnection(str);
+            cnn = new SqlConnection(classConnect.sql);
             cnn.Open();
             loadData();
         }

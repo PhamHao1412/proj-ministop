@@ -10,11 +10,11 @@ namespace QuanLyTiemTapHoa
 {
     internal class ChucNang
     {
-        public static SqlConnection cnn =KetNoiCoSoDuLieu.cnn;
+        public static SqlConnection cnn =classConnect.connect;
         public static void connect()
         {
             cnn = new SqlConnection(@"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
-            //cnn = new SqlConnection(@"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
+            //connect = new SqlConnection(@"Data Source=LAPTOP-FAMD6FDU\PHAMHAO;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True");
 
             cnn.Open();
         }

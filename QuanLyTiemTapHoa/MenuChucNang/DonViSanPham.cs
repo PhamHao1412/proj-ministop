@@ -14,9 +14,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
     
     public partial class DonViSanPham : Form
     {
-        SqlConnection cnn;
+        SqlConnection cnn = classConnect.connect;
         SqlCommand command;
-        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
 
@@ -61,7 +60,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void DonViSanPham_Load(object sender, EventArgs e)
         {
-            cnn = new SqlConnection(str);
+            cnn = new SqlConnection(classConnect.sql);
             cnn.Open();
             loadData();
         }
