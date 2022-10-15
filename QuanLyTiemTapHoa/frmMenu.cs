@@ -28,14 +28,14 @@ namespace QuanLyTiemTapHoa
         {
             if(cnn.State == ConnectionState.Closed)
                 cnn.Open();
-            cmd.CommandText = "select MaNV,TenNV from NhanVien ";
+            cmd.CommandText = "select TenNV from NhanVien ";
             cmd.Connection = cnn;
             reader = cmd.ExecuteReader();
             bool temp = false;
             while (reader.Read())
             {
-                lbUser.Text = reader.GetString(1);
-                tennv = reader.GetString(1);
+                lbUser.Text = reader.GetString(0);
+                tennv = reader.GetString(0);
                 temp = true;
             }
             if (temp == false)

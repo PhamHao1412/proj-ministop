@@ -32,8 +32,9 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         public void Add()
         {
+            string nn = datetimeNgaySinh.Value.ToString("yyyy-MM-dd");
             command = cnn.CreateCommand();
-            command.CommandText = "insert into NhanVien values('"+txtMaNV.Text+"',N'"+txtHoTen.Text+"','"+cmbGioiTinh.Text+"','"+datetimeNgaySinh.Value.ToString()+"',N'"+txtDiaChi.Text+"','"+txtSDT.Text+"','"+txtCCCD.Text+"','"+txtEmail.Text+"','"+(cmbChucVu.SelectedIndex+1)+"')";
+            command.CommandText = "insert into NhanVien values('"+txtMaNV.Text+"',N'"+txtHoTen.Text+"','"+cmbGioiTinh.Text+"','" + nn + "',N'"+txtDiaChi.Text+"','"+txtSDT.Text+"','"+txtCCCD.Text+"','"+txtEmail.Text+"','"+(cmbChucVu.SelectedIndex+1)+"')";
             command.ExecuteNonQuery();
             loadData();
         }
@@ -74,7 +75,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaNV.ReadOnly = true;
             int i;
             i = dgvEmployees.CurrentRow.Index;
             txtMaNV.Text = dgvEmployees.Rows[i].Cells[0].Value.ToString();
@@ -104,6 +104,13 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             frmMenu frmMenu = new frmMenu();
             this.Hide();
             frmMenu.ShowDialog();
+        }
+
+        private void btnTKNV_Click(object sender, EventArgs e)
+        {
+            MenuChucNang.TaiKhoan frtk = new MenuChucNang.TaiKhoan();
+            this.Hide();
+            frtk.ShowDialog();
         }
     }
 }
