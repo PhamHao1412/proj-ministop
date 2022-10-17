@@ -52,7 +52,9 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             DialogResult dr = MessageBox.Show("Bạn có muốn thoát không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                this.Close();
+                this.Hide();
+                frmDangNhap frmDangNhap = new frmDangNhap();
+                frmDangNhap.ShowDialog();
             }
         }
         void AddCmbMaNV()

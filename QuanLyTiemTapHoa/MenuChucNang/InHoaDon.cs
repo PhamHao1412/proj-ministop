@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyTiemTapHoa.MenuChucNang
 {
-    public partial class ThongKe : Form
+    public partial class InHoaDon : Form
     {
-        public ThongKe()
+        public InHoaDon()
         {
             InitializeComponent();
-        }
-
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            frmMenu frmMenu = new frmMenu();
-            this.Hide();
-            frmMenu.ShowDialog();
         }
     }
 }

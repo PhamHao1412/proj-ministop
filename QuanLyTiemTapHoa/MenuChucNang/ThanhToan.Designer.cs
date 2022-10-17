@@ -34,16 +34,17 @@
             this.txtKhachDua = new System.Windows.Forms.TextBox();
             this.txtTienTL = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnTienThoi = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 42);
+            this.label1.Location = new System.Drawing.Point(12, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 25);
             this.label1.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 122);
+            this.label2.Location = new System.Drawing.Point(12, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 25);
             this.label2.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             // txtThanhToan
             // 
-            this.txtThanhToan.Location = new System.Drawing.Point(180, 33);
+            this.txtThanhToan.Location = new System.Drawing.Point(184, 91);
             this.txtThanhToan.Multiline = true;
             this.txtThanhToan.Name = "txtThanhToan";
             this.txtThanhToan.Size = new System.Drawing.Size(314, 46);
@@ -69,7 +70,7 @@
             // 
             // txtKhachDua
             // 
-            this.txtKhachDua.Location = new System.Drawing.Point(180, 108);
+            this.txtKhachDua.Location = new System.Drawing.Point(184, 166);
             this.txtKhachDua.Multiline = true;
             this.txtKhachDua.Name = "txtKhachDua";
             this.txtKhachDua.Size = new System.Drawing.Size(314, 53);
@@ -77,7 +78,7 @@
             // 
             // txtTienTL
             // 
-            this.txtTienTL.Location = new System.Drawing.Point(180, 198);
+            this.txtTienTL.Location = new System.Drawing.Point(184, 256);
             this.txtTienTL.Multiline = true;
             this.txtTienTL.Name = "txtTienTL";
             this.txtTienTL.Size = new System.Drawing.Size(314, 53);
@@ -87,46 +88,69 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 217);
+            this.label3.Location = new System.Drawing.Point(12, 275);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tiền thối lại";
             // 
-            // button1
+            // label4
             // 
-            this.button1.Location = new System.Drawing.Point(180, 301);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 48);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Hủy";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.Location = new System.Drawing.Point(376, 301);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(118, 48);
-            this.btnThanhToan.TabIndex = 7;
-            this.btnThanhToan.Text = "Đồng ý";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(207, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(342, 42);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Thanh toán hóa đơn";
             // 
             // btnTienThoi
             // 
-            this.btnTienThoi.Location = new System.Drawing.Point(525, 108);
+            this.btnTienThoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTienThoi.Image = global::QuanLyTiemTapHoa.Properties.Resources.Tính_tiền;
+            this.btnTienThoi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTienThoi.Location = new System.Drawing.Point(531, 171);
             this.btnTienThoi.Name = "btnTienThoi";
-            this.btnTienThoi.Size = new System.Drawing.Size(118, 48);
+            this.btnTienThoi.Size = new System.Drawing.Size(155, 48);
             this.btnTienThoi.TabIndex = 8;
             this.btnTienThoi.Text = "Tính tiền thối";
+            this.btnTienThoi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTienThoi.UseVisualStyleBackColor = true;
             this.btnTienThoi.Click += new System.EventHandler(this.btnTienThoi_Click);
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.Image = global::QuanLyTiemTapHoa.Properties.Resources.ok;
+            this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThanhToan.Location = new System.Drawing.Point(366, 353);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(132, 60);
+            this.btnThanhToan.TabIndex = 7;
+            this.btnThanhToan.Text = "Đồng ý";
+            this.btnThanhToan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::QuanLyTiemTapHoa.Properties.Resources.làm_mới;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(184, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 60);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Hủy";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 445);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnTienThoi);
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.button1);
@@ -155,5 +179,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button btnTienThoi;
+        private System.Windows.Forms.Label label4;
     }
 }

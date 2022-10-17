@@ -20,6 +20,8 @@ namespace QuanLyTiemTapHoa
         SqlDataReader reader;
 
         public static string tennv = "";
+        public static string tencv = "";
+        public static string macv = "";
         public frmMenu()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace QuanLyTiemTapHoa
         {
             if(cnn.State == ConnectionState.Closed)
                 cnn.Open();
-            cmd.CommandText = "select TenNV from NhanVien ";
+            cmd.CommandText = "select TenNV,TenCV,n.MaCV from TaiKhoan t,NhanVien n,ChucVu c where t.MaNV = n.MaNV and t.TenTK = '" + frmDangNhap.TenTK+"' and c.MaCV=n.MaCV ";
             cmd.Connection = cnn;
             reader = cmd.ExecuteReader();
             bool temp = false;
@@ -36,10 +38,18 @@ namespace QuanLyTiemTapHoa
             {
                 lbUser.Text = reader.GetString(0);
                 tennv = reader.GetString(0);
+                lbChucVu.Text = reader.GetString(1);
+                tencv = reader.GetString(1);
+                macv = reader.GetString(2);
                 temp = true;
             }
             if (temp == false)
                 MessageBox.Show("Không tìm thấy");
+            int quyen = int.Parse(macv);
+            if(quyen == 2)
+            {
+                btnNhanVien.Visible = false;
+            }
             cnn.Close();
         }
         private void btnDangXuat_Click(object sender, EventArgs e)

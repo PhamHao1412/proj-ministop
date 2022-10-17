@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.dtgvTonKho = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button7 = new System.Windows.Forms.Button();
-            this.btnReload = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,8 +47,11 @@
             this.cmbNCC = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTonKho)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,72 +60,30 @@
             // 
             this.dtgvTonKho.AllowUserToAddRows = false;
             this.dtgvTonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTonKho.Location = new System.Drawing.Point(390, 112);
+            this.dtgvTonKho.Location = new System.Drawing.Point(590, 112);
             this.dtgvTonKho.Name = "dtgvTonKho";
             this.dtgvTonKho.RowHeadersWidth = 51;
-            this.dtgvTonKho.Size = new System.Drawing.Size(518, 396);
+            this.dtgvTonKho.Size = new System.Drawing.Size(590, 396);
             this.dtgvTonKho.TabIndex = 43;
             this.dtgvTonKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTonKho_CellClick_1);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(743, 60);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker1.TabIndex = 41;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(743, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(168, 43);
-            this.button7.TabIndex = 40;
-            this.button7.Text = "Xuất Excel";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // btnReload
-            // 
-            this.btnReload.Location = new System.Drawing.Point(263, 370);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(81, 43);
-            this.btnReload.TabIndex = 36;
-            this.btnReload.Text = "Làm mới";
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(176, 370);
+            this.btnDel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.Image = global::QuanLyTiemTapHoa.Properties.Resources.xóa;
+            this.btnDel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDel.Location = new System.Drawing.Point(275, 372);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(81, 43);
+            this.btnDel.Size = new System.Drawing.Size(121, 65);
             this.btnDel.TabIndex = 35;
             this.btnDel.Text = "Xóa";
+            this.btnDel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click_1);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(89, 370);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(81, 43);
-            this.btnSave.TabIndex = 34;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(2, 370);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(81, 43);
-            this.btnAdd.TabIndex = 33;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
-            // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(390, 73);
+            this.txtSearch.Location = new System.Drawing.Point(579, 56);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(201, 20);
             this.txtSearch.TabIndex = 31;
@@ -245,9 +201,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(10, 63);
+            this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(342, 301);
+            this.groupBox1.Size = new System.Drawing.Size(524, 301);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hàng hóa";
@@ -271,45 +227,93 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(597, 63);
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.Location = new System.Drawing.Point(821, 32);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(73, 30);
+            this.btnSearch.Size = new System.Drawing.Size(123, 64);
             this.btnSearch.TabIndex = 44;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
-            // btnMenu
-            // 
-            this.btnMenu.Location = new System.Drawing.Point(2, 3);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(80, 35);
-            this.btnMenu.TabIndex = 45;
-            this.btnMenu.Text = "Menu";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click_1);
-            // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(263, 436);
+            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Image = global::QuanLyTiemTapHoa.Properties.Resources.trờ_về;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBack.Location = new System.Drawing.Point(1069, 525);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(79, 38);
+            this.btnBack.Size = new System.Drawing.Size(121, 64);
             this.btnBack.TabIndex = 46;
             this.btnBack.Text = "Trở về";
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
+            // 
+            // btnReload
+            // 
+            this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.Image = global::QuanLyTiemTapHoa.Properties.Resources.làm_mới;
+            this.btnReload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReload.Location = new System.Drawing.Point(413, 372);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(121, 65);
+            this.btnReload.TabIndex = 36;
+            this.btnReload.Text = "Làm mới";
+            this.btnReload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Image = global::QuanLyTiemTapHoa.Properties.Resources.lưu;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.Location = new System.Drawing.Point(136, 371);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(121, 66);
+            this.btnSave.TabIndex = 34;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = global::QuanLyTiemTapHoa.Properties.Resources.icons8_add_50;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.Location = new System.Drawing.Point(2, 370);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(121, 66);
+            this.btnAdd.TabIndex = 33;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(499, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(143, 31);
+            this.label6.TabIndex = 47;
+            this.label6.Text = "TỒN KHO";
             // 
             // TonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 529);
+            this.ClientSize = new System.Drawing.Size(1192, 588);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dtgvTonKho);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnSave);
@@ -330,8 +334,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dtgvTonKho;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnSave;
@@ -353,7 +355,7 @@
         private System.Windows.Forms.ComboBox cmbNCC;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -151,19 +151,11 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             txtSearch.Text = dtgvTonKho.Rows[e.RowIndex].Cells[0].Value?.ToString();
         }
 
-
-        private void btnMenu_Click_1(object sender, EventArgs e)
-        {
-            frmMenu frmMenu = new frmMenu();
-            this.Hide();
-            frmMenu.ShowDialog();
-        }
-
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            NhapKho frmnk = new NhapKho();
-            frmnk.Show();
+            frmMenu frmMenu = new frmMenu();
+            frmMenu.Show();
         }
         #endregion
     }

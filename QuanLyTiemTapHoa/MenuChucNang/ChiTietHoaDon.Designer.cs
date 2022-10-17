@@ -44,20 +44,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnThanhToan = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMaHD = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtTenNV = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnTinhTien = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTongCong = new System.Windows.Forms.TextBox();
+            this.btnTinhTien = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +81,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(317, 266);
+            this.groupBox1.Size = new System.Drawing.Size(357, 266);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hóa đơn";
@@ -91,7 +91,7 @@
             this.cmbDonViSP.FormattingEnabled = true;
             this.cmbDonViSP.Location = new System.Drawing.Point(112, 122);
             this.cmbDonViSP.Name = "cmbDonViSP";
-            this.cmbDonViSP.Size = new System.Drawing.Size(188, 21);
+            this.cmbDonViSP.Size = new System.Drawing.Size(239, 21);
             this.cmbDonViSP.TabIndex = 5;
             // 
             // label10
@@ -108,14 +108,14 @@
             this.txtThanhTien.Location = new System.Drawing.Point(112, 231);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.ReadOnly = true;
-            this.txtThanhTien.Size = new System.Drawing.Size(188, 20);
+            this.txtThanhTien.Size = new System.Drawing.Size(239, 20);
             this.txtThanhTien.TabIndex = 8;
             // 
             // txtGiamGia
             // 
             this.txtGiamGia.Location = new System.Drawing.Point(112, 192);
             this.txtGiamGia.Name = "txtGiamGia";
-            this.txtGiamGia.Size = new System.Drawing.Size(188, 20);
+            this.txtGiamGia.Size = new System.Drawing.Size(239, 20);
             this.txtGiamGia.TabIndex = 7;
             // 
             // label7
@@ -141,7 +141,7 @@
             this.txtDonGia.Location = new System.Drawing.Point(112, 156);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.ReadOnly = true;
-            this.txtDonGia.Size = new System.Drawing.Size(188, 20);
+            this.txtDonGia.Size = new System.Drawing.Size(239, 20);
             this.txtDonGia.TabIndex = 6;
             // 
             // label5
@@ -157,14 +157,14 @@
             // 
             this.txtSL.Location = new System.Drawing.Point(112, 84);
             this.txtSL.Name = "txtSL";
-            this.txtSL.Size = new System.Drawing.Size(188, 20);
+            this.txtSL.Size = new System.Drawing.Size(239, 20);
             this.txtSL.TabIndex = 4;
             // 
             // txtTenSP
             // 
             this.txtTenSP.Location = new System.Drawing.Point(112, 51);
             this.txtTenSP.Name = "txtTenSP";
-            this.txtTenSP.Size = new System.Drawing.Size(188, 20);
+            this.txtTenSP.Size = new System.Drawing.Size(239, 20);
             this.txtTenSP.TabIndex = 3;
             // 
             // label4
@@ -180,7 +180,7 @@
             // 
             this.txtMaSP.Location = new System.Drawing.Point(112, 18);
             this.txtMaSP.Name = "txtMaSP";
-            this.txtMaSP.Size = new System.Drawing.Size(188, 20);
+            this.txtMaSP.Size = new System.Drawing.Size(239, 20);
             this.txtMaSP.TabIndex = 2;
             // 
             // label3
@@ -209,43 +209,14 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 0;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(257, 395);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(101, 42);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // dgvHoaDon
             // 
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDon.Location = new System.Drawing.Point(444, 12);
+            this.dgvHoaDon.Location = new System.Drawing.Point(516, 12);
             this.dgvHoaDon.Name = "dgvHoaDon";
-            this.dgvHoaDon.Size = new System.Drawing.Size(391, 351);
+            this.dgvHoaDon.Size = new System.Drawing.Size(470, 353);
             this.dgvHoaDon.TabIndex = 6;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(124, 395);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(101, 42);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Sửa";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.Location = new System.Drawing.Point(444, 453);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(194, 50);
-            this.btnThanhToan.TabIndex = 9;
-            this.btnThanhToan.Text = "Thanh toán";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // label8
             // 
@@ -261,12 +232,12 @@
             this.txtMaHD.Location = new System.Drawing.Point(124, 6);
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.ReadOnly = true;
-            this.txtMaHD.Size = new System.Drawing.Size(188, 20);
+            this.txtMaHD.Size = new System.Drawing.Size(239, 20);
             this.txtMaHD.TabIndex = 0;
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(795, 482);
+            this.btnExit.Location = new System.Drawing.Point(887, 495);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(99, 39);
             this.btnExit.TabIndex = 12;
@@ -274,40 +245,12 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Image = global::QuanLyTiemTapHoa.Properties.Resources.Delete;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.Location = new System.Drawing.Point(4, 394);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 42);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(335, 95);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(103, 38);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // txtTenNV
             // 
             this.txtTenNV.Location = new System.Drawing.Point(124, 40);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.ReadOnly = true;
-            this.txtTenNV.Size = new System.Drawing.Size(188, 20);
+            this.txtTenNV.Size = new System.Drawing.Size(239, 20);
             this.txtTenNV.TabIndex = 1;
             // 
             // label9
@@ -318,20 +261,6 @@
             this.label9.Size = new System.Drawing.Size(76, 13);
             this.label9.TabIndex = 13;
             this.label9.Text = "Tên nhân viên";
-            // 
-            // btnTinhTien
-            // 
-            this.btnTinhTien.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTinhTien.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
-            this.btnTinhTien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTinhTien.Location = new System.Drawing.Point(335, 294);
-            this.btnTinhTien.Name = "btnTinhTien";
-            this.btnTinhTien.Size = new System.Drawing.Size(103, 38);
-            this.btnTinhTien.TabIndex = 14;
-            this.btnTinhTien.Text = "Tính tiền";
-            this.btnTinhTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTinhTien.UseVisualStyleBackColor = true;
-            this.btnTinhTien.Click += new System.EventHandler(this.btnTinhTien_Click);
             // 
             // label11
             // 
@@ -351,11 +280,94 @@
             this.txtTongCong.Text = "0";
             this.txtTongCong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btnTinhTien
+            // 
+            this.btnTinhTien.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTinhTien.Image = global::QuanLyTiemTapHoa.Properties.Resources.Tính_tiền;
+            this.btnTinhTien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTinhTien.Location = new System.Drawing.Point(389, 222);
+            this.btnTinhTien.Name = "btnTinhTien";
+            this.btnTinhTien.Size = new System.Drawing.Size(111, 55);
+            this.btnTinhTien.TabIndex = 14;
+            this.btnTinhTien.Text = "Tính tiền";
+            this.btnTinhTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTinhTien.UseVisualStyleBackColor = true;
+            this.btnTinhTien.Click += new System.EventHandler(this.btnTinhTien_Click);
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.Image = global::QuanLyTiemTapHoa.Properties.Resources.thanh_toán;
+            this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThanhToan.Location = new System.Drawing.Point(859, 375);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(127, 50);
+            this.btnThanhToan.TabIndex = 9;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Image = global::QuanLyTiemTapHoa.Properties.Resources.Delete;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.Location = new System.Drawing.Point(12, 395);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(111, 58);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Image = global::QuanLyTiemTapHoa.Properties.Resources.sửa;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.Location = new System.Drawing.Point(272, 392);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(111, 56);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = global::QuanLyTiemTapHoa.Properties.Resources.icons8_add_50;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.Location = new System.Drawing.Point(141, 392);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(111, 56);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(389, 91);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(111, 55);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // ChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 533);
+            this.ClientSize = new System.Drawing.Size(1021, 546);
             this.Controls.Add(this.txtTongCong);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnTinhTien);

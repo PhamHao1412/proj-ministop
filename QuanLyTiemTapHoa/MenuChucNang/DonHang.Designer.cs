@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dgvDonHang = new System.Windows.Forms.DataGridView();
             this.btnThoat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).BeginInit();
@@ -47,15 +45,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(693, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 37);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Xuất Excel";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(83, 21);
@@ -65,35 +54,36 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(222, 58);
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.Location = new System.Drawing.Point(369, 7);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(101, 37);
+            this.btnSearch.Size = new System.Drawing.Size(117, 46);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(665, 64);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 20);
-            this.dateTimePicker1.TabIndex = 4;
             // 
             // dgvDonHang
             // 
             this.dgvDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDonHang.Location = new System.Drawing.Point(15, 101);
             this.dgvDonHang.Name = "dgvDonHang";
-            this.dgvDonHang.Size = new System.Drawing.Size(821, 337);
+            this.dgvDonHang.Size = new System.Drawing.Size(830, 337);
             this.dgvDonHang.TabIndex = 5;
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(735, 458);
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Image = global::QuanLyTiemTapHoa.Properties.Resources.trờ_về;
+            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThoat.Location = new System.Drawing.Point(752, 454);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(101, 37);
+            this.btnThoat.Size = new System.Drawing.Size(115, 51);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -104,10 +94,8 @@
             this.ClientSize = new System.Drawing.Size(869, 507);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.dgvDonHang);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "DonHang";
             this.Text = "Đơn hàng";
@@ -121,10 +109,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dgvDonHang;
         private System.Windows.Forms.Button btnThoat;
     }

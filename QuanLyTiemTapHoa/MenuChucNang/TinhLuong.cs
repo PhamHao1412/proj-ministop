@@ -16,5 +16,10 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             InitializeComponent();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

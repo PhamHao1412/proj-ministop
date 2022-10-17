@@ -50,6 +50,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command = cnn.CreateCommand();
             command.CommandText = "insert into CTHD values('"+txtMaHD.Text+"','"+txtMaSP.Text+"','"+txtTenSP.Text+"','"+txtSL.Text+"','"+(cmbDonViSP.SelectedIndex+1)+"','"+txtDonGia.Text+"','"+txtGiamGia.Text+"','"+txtThanhTien.Text+"')";
             command.ExecuteNonQuery();
+            command.CommandText = "update TonKho set soluong = soluong - '" + txtSL.Text+"'where MaSP = '"+txtMaSP.Text+"'";
+            command.ExecuteNonQuery();
             loadData();
             cnn.Close();
             loadHD();
@@ -59,6 +61,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             cnn.Open();
             command = cnn.CreateCommand();
             command.CommandText = "delete from CTHD where MaSP = '" + txtMaSP.Text + "'";
+            command.ExecuteNonQuery();
+            command.CommandText = "update TonKho set soluong = soluong + '" + txtSL.Text + "'where MaSP = '" + txtMaSP.Text + "'";
             command.ExecuteNonQuery();
             loadHD();
         }
@@ -104,6 +108,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             adapter.Fill(dt);
             cmbDonViSP.DataSource = dt;
             loadData();
+            cnn.Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

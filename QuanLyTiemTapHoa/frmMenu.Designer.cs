@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbChucVu = new System.Windows.Forms.Label();
             this.lbUser = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnNhaCungCap = new System.Windows.Forms.Button();
             this.btnDonViSP = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
@@ -41,20 +44,28 @@
             this.btnNhapKho = new System.Windows.Forms.Button();
             this.btnDonHang = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnNhaCungCap = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbChucVu);
             this.panel1.Controls.Add(this.lbUser);
             this.panel1.Controls.Add(this.lbTime);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 77);
             this.panel1.TabIndex = 0;
+            // 
+            // lbChucVu
+            // 
+            this.lbChucVu.AutoSize = true;
+            this.lbChucVu.Location = new System.Drawing.Point(266, 43);
+            this.lbChucVu.Name = "lbChucVu";
+            this.lbChucVu.Size = new System.Drawing.Size(47, 13);
+            this.lbChucVu.TabIndex = 2;
+            this.lbChucVu.Text = "Chức vụ";
             // 
             // lbUser
             // 
@@ -89,6 +100,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 365);
             this.panel2.TabIndex = 1;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnNhaCungCap
+            // 
+            this.btnNhaCungCap.Image = global::QuanLyTiemTapHoa.Properties.Resources.Nhà_cung_cấp;
+            this.btnNhaCungCap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhaCungCap.Location = new System.Drawing.Point(427, 180);
+            this.btnNhaCungCap.Name = "btnNhaCungCap";
+            this.btnNhaCungCap.Size = new System.Drawing.Size(120, 46);
+            this.btnNhaCungCap.TabIndex = 9;
+            this.btnNhaCungCap.Text = "Nhà cung cấp";
+            this.btnNhaCungCap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhaCungCap.UseVisualStyleBackColor = true;
+            this.btnNhaCungCap.Click += new System.EventHandler(this.btnNhaCungCap_Click);
             // 
             // btnDonViSP
             // 
@@ -131,7 +159,7 @@
             // 
             // btnNhanVien
             // 
-            this.btnNhanVien.Image = global::QuanLyTiemTapHoa.Properties.Resources.Sản_phẩm;
+            this.btnNhanVien.Image = global::QuanLyTiemTapHoa.Properties.Resources.Nhân_viên;
             this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNhanVien.Location = new System.Drawing.Point(607, 54);
             this.btnNhanVien.Name = "btnNhanVien";
@@ -194,23 +222,6 @@
             this.btnBanHang.UseVisualStyleBackColor = true;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnNhaCungCap
-            // 
-            this.btnNhaCungCap.Image = global::QuanLyTiemTapHoa.Properties.Resources.Tồn_kho;
-            this.btnNhaCungCap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhaCungCap.Location = new System.Drawing.Point(427, 180);
-            this.btnNhaCungCap.Name = "btnNhaCungCap";
-            this.btnNhaCungCap.Size = new System.Drawing.Size(120, 46);
-            this.btnNhaCungCap.TabIndex = 9;
-            this.btnNhaCungCap.Text = "Nhà cung cấp";
-            this.btnNhaCungCap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhaCungCap.UseVisualStyleBackColor = true;
-            this.btnNhaCungCap.Click += new System.EventHandler(this.btnNhaCungCap_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,5 +255,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnDonViSP;
         private System.Windows.Forms.Button btnNhaCungCap;
+        private System.Windows.Forms.Label lbChucVu;
     }
 }

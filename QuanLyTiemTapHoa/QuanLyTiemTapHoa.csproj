@@ -272,5 +272,41 @@
   <ItemGroup>
     <None Include="Resources\Delete.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nhân viên.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nhà cung cấp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tính tiền.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thêm.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xóa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sửa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\làm mới.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trờ về.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lập hóa đơn.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thanh toán.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lưu.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
