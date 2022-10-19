@@ -298,44 +298,44 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         public void searchData(string searchVal)
         {
-            SqlCommand command2 = new SqlCommand();
-            SqlDataAdapter adapter2 = new SqlDataAdapter();
-            DataTable table2 = new DataTable();
-            command2 = cnn.CreateCommand();
+            SqlCommand comand = new SqlCommand();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table1 = new DataTable();
+            comand = cnn.CreateCommand();
             if (cmbDanhMuc.SelectedIndex == 0)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and MaSP like '%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and MaSP like '%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 1)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenSP like N'%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenSP like N'%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 2)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and SoLuong like '%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and SoLuong like '%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 3)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenDV like N'%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenDV like N'%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 4)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenNV like N'%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenNV like N'%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 5)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and NgayNhap like N'%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and NgayNhap like N'%" + searchVal + "%'";
             }
             else
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenNCC like N'%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenNCC like N'%" + searchVal + "%'";
 
             }
 
-            adapter2.SelectCommand = command2;
-            table2.Clear();
-            adapter2.Fill(table2);
-            dtgvWarehouse.DataSource = table2;
+            adapter.SelectCommand = comand;
+            table1.Clear();
+            adapter.Fill(table1);
+            dtgvWarehouse.DataSource = table1;
         }
 
 

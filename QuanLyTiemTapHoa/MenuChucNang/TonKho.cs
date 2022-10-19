@@ -99,35 +99,35 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         public void searchData(string searchVal)
         {
-            SqlCommand command2 = new SqlCommand();
-            SqlDataAdapter adapter2 = new SqlDataAdapter();
-            DataTable table2 = new DataTable();
-            command2 = cnn.CreateCommand();
+            SqlCommand command = new SqlCommand();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table1 = new DataTable();
+            command = cnn.CreateCommand();
             if (cmbDanhMuc.SelectedIndex == 0)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and MaSP like '%" + searchVal + "%'";
+                command.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and MaSP like '%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 1)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D  WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenSP like N'%" + searchVal + "%'";
+                command.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D  WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenSP like N'%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 2)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and SoLuong like '%" + searchVal + "%'";
+                command.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and SoLuong like '%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 3)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenDV like N'%" + searchVal + "%'";
+                command.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenDV like N'%" + searchVal + "%'";
             }
             else
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenNCC like N'%" + searchVal + "%'";
+                command.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenNCC like N'%" + searchVal + "%'";
 
             }
-            adapter2.SelectCommand = command2;
-            table2.Clear();
-            adapter2.Fill(table2);
-            dtgvTonKho.DataSource = table2;
+            adapter.SelectCommand = command;
+            table1.Clear();
+            adapter.Fill(table1);
+            dtgvTonKho.DataSource = table1;
         }
         #endregion
         #region Events
