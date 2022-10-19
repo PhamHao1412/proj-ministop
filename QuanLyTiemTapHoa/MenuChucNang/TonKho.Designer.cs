@@ -53,6 +53,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbDanhMuc = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTonKho)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +87,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(913, 80);
+            this.txtSearch.Location = new System.Drawing.Point(919, 88);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(267, 22);
@@ -341,17 +342,28 @@
             "Số lượng",
             "Đơn vị",
             "Nhà cung cấp"});
-            this.cmbDanhMuc.Location = new System.Drawing.Point(732, 80);
+            this.cmbDanhMuc.Location = new System.Drawing.Point(735, 86);
             this.cmbDanhMuc.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDanhMuc.Name = "cmbDanhMuc";
             this.cmbDanhMuc.Size = new System.Drawing.Size(163, 24);
             this.cmbDanhMuc.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(750, 60);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 16);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Danh mục";
             // 
             // TonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1589, 724);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbDanhMuc);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnBack);
@@ -402,5 +414,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbDanhMuc;
+        private System.Windows.Forms.Label label9;
     }
 }

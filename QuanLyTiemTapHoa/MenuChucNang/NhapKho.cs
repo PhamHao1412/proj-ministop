@@ -316,19 +316,19 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }
             else if (cmbDanhMuc.SelectedIndex == 3)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenDV like '%" + searchVal + "%'";
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenDV like N'%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 4)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenNV like '%" + searchVal + "%'";
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenNV like N'%" + searchVal + "%'";
             }
             else if (cmbDanhMuc.SelectedIndex == 5)
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and NgayNhap like '%" + searchVal + "%'";
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and NgayNhap like N'%" + searchVal + "%'";
             }
             else
             {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenNCC like '%" + searchVal + "%'";
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenNCC like N'%" + searchVal + "%'";
 
             }
 

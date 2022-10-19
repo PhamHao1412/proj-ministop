@@ -97,15 +97,37 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command.ExecuteNonQuery();
             LoadData();
         }
-        void Search()
+        public void searchData(string searchVal)
         {
-            command = cnn.CreateCommand();
-            command.CommandText = "select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho t,DonViSP d,NhaCungCap n where t.MaDV=d.MaDV and t.MaNCC=n.MaNCC and MaSP = '" + txtSearch.Text+ "'";
-            command.ExecuteNonQuery();
-            adapter.SelectCommand = command;
-            table.Clear();
-            adapter.Fill(table);
-            dtgvTonKho.DataSource = table;
+            SqlCommand command2 = new SqlCommand();
+            SqlDataAdapter adapter2 = new SqlDataAdapter();
+            DataTable table2 = new DataTable();
+            command2 = cnn.CreateCommand();
+            if (cmbDanhMuc.SelectedIndex == 0)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and MaSP like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 1)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D  WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenSP like N'%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 2)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and SoLuong like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 3)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenDV like N'%" + searchVal + "%'";
+            }
+            else
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenNCC like N'%" + searchVal + "%'";
+
+            }
+            adapter2.SelectCommand = command2;
+            table2.Clear();
+            adapter2.Fill(table2);
+            dtgvTonKho.DataSource = table2;
         }
         #endregion
         #region Events
@@ -139,7 +161,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
-            Search();
+            
         }
 
         private void dtgvTonKho_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -162,43 +184,10 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             frmMenu frmMenu = new frmMenu();
             frmMenu.Show();
         }
-        #endregion
-
-        public void searchData(string searchVal)
-        {
-            SqlCommand command2 = new SqlCommand();
-            SqlDataAdapter adapter2 = new SqlDataAdapter();
-            DataTable table2 = new DataTable();
-            command2 = cnn.CreateCommand();
-            if (cmbDanhMuc.SelectedIndex == 0)
-            {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and MaSP like '%" + searchVal + "%'";
-            }
-            else if (cmbDanhMuc.SelectedIndex == 1)
-            {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D  WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenSP like N'%" + searchVal + "%'";
-            }
-            else if (cmbDanhMuc.SelectedIndex == 2)
-            {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and SoLuong like '%" + searchVal + "%'";
-            }
-            else if (cmbDanhMuc.SelectedIndex == 3)
-            {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenDV like N'%" + searchVal + "%'";
-            }
-            else
-            {
-                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenNCC like N'%" + searchVal + "%'";
-
-            }
-            adapter2.SelectCommand = command2;
-            table2.Clear();
-            adapter2.Fill(table2);
-            dtgvTonKho.DataSource = table2;
-        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             searchData(txtSearch.Text);
         }
+        #endregion
     }
 }
