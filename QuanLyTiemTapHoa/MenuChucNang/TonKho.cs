@@ -17,9 +17,11 @@ namespace QuanLyTiemTapHoa.MenuChucNang
     {
         #region Global Varibles
         SqlConnection cnn = classConnect.connect;
-        SqlCommand command;
+        SqlCommand command = new SqlCommand();
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
+        DataTable table1 = new DataTable();
+
         public TonKho()
         {
             InitializeComponent();
@@ -142,14 +144,16 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void dtgvTonKho_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaSP.Text = dtgvTonKho.Rows[e.RowIndex].Cells[0].Value?.ToString();
-            txtTenSp.Text = dtgvTonKho.Rows[e.RowIndex].Cells[1].Value?.ToString();
-            txtSL.Text = dtgvTonKho.Rows[e.RowIndex].Cells[2].Value?.ToString();
-            cmbDonVi.Text = dtgvTonKho.Rows[e.RowIndex].Cells[3].Value?.ToString();
-            txtGiaNhap.Text = dtgvTonKho.Rows[e.RowIndex].Cells[4].Value?.ToString();
-            txtGiaBan.Text = dtgvTonKho.Rows[e.RowIndex].Cells[5].Value?.ToString();
-            cmbNCC.Text = dtgvTonKho.Rows[e.RowIndex].Cells[6].Value?.ToString();
-            txtSearch.Text = dtgvTonKho.Rows[e.RowIndex].Cells[0].Value?.ToString();
+            int i;
+            i = dtgvTonKho.CurrentRow.Index;
+            txtMaSP.Text = dtgvTonKho.Rows[i].Cells[0].Value?.ToString();
+            txtTenSp.Text = dtgvTonKho.Rows[i].Cells[1].Value?.ToString();
+            txtSL.Text = dtgvTonKho.Rows[i].Cells[2].Value?.ToString();
+            cmbDonVi.Text = dtgvTonKho.Rows[i].Cells[3].Value?.ToString();
+            txtGiaNhap.Text = dtgvTonKho.Rows[i].Cells[4].Value?.ToString();
+            txtGiaBan.Text = dtgvTonKho.Rows[i].Cells[5].Value?.ToString();
+            cmbNCC.Text = dtgvTonKho.Rows[i].Cells[6].Value?.ToString();
+            txtSearch.Text = dtgvTonKho.Rows[i].Cells[0].Value?.ToString();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -159,5 +163,42 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             frmMenu.Show();
         }
         #endregion
+
+        public void searchData(string searchVal)
+        {
+            SqlCommand command2 = new SqlCommand();
+            SqlDataAdapter adapter2 = new SqlDataAdapter();
+            DataTable table2 = new DataTable();
+            command2 = cnn.CreateCommand();
+            if (cmbDanhMuc.SelectedIndex == 0)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and MaSP like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 1)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D  WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenSP like N'%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 2)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and SoLuong like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 3)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenDV like N'%" + searchVal + "%'";
+            }
+            else
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho T,NhaCungCap N,DonViSP D WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and TenNCC like N'%" + searchVal + "%'";
+
+            }
+            adapter2.SelectCommand = command2;
+            table2.Clear();
+            adapter2.Fill(table2);
+            dtgvTonKho.DataSource = table2;
+        }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchData(txtSearch.Text);
+        }
     }
 }

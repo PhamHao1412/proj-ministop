@@ -13,9 +13,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class DonHang : Form
     {
-        SqlConnection cnn;
+        SqlConnection cnn = classConnect.connect;
         SqlCommand command;
-        string str = @"Data Source=DESKTOP-O2TB88K\SQLEXPRESS;Initial Catalog=QLCuaHangTapHoa;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         public DonHang()
@@ -34,7 +33,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void DonHang_Load(object sender, EventArgs e)
         {
-            cnn = new SqlConnection(str);
             cnn.Open();
             loadData();
         }

@@ -56,7 +56,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             cnn.Close();
             command = cnn.CreateCommand();
-            command.CommandText = "select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],MaNV[Mã nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho n, NhaCungCap c ,DonViSP d where n.MaNCC = c.MaNCC and n.MaDV=d.MaDV";
+            command.CommandText = "select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho n, NhaCungCap c ,DonViSP d,NhanVien nv where n.MaNCC = c.MaNCC and n.MaDV=d.MaDV and n.MaNV=nv.MaNV";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -296,6 +296,48 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             cmbDonVi.SelectedIndex = 0;
             cmbNcc.SelectedIndex = 0;
         }
+        public void searchData(string searchVal)
+        {
+            SqlCommand command2 = new SqlCommand();
+            SqlDataAdapter adapter2 = new SqlDataAdapter();
+            DataTable table2 = new DataTable();
+            command2 = cnn.CreateCommand();
+            if (cmbDanhMuc.SelectedIndex == 0)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and MaSP like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 1)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenSP like N'%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 2)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and SoLuong like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 3)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenDV like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 4)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE T.MaDV=D.MaDV and T.MaNCC=N.MaNCC  and NV.MaNV=T.MaNV and TenNV like '%" + searchVal + "%'";
+            }
+            else if (cmbDanhMuc.SelectedIndex == 5)
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and NgayNhap like '%" + searchVal + "%'";
+            }
+            else
+            {
+                command2.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and TenNCC like '%" + searchVal + "%'";
+
+            }
+
+            adapter2.SelectCommand = command2;
+            table2.Clear();
+            adapter2.Fill(table2);
+            dtgvWarehouse.DataSource = table2;
+        }
+
 
         #endregion
 
@@ -350,15 +392,17 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void dtgvWarehouse_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaSP.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[0].Value?.ToString();
-            txtTenSP.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[1].Value?.ToString();
-            txtSL.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[2].Value?.ToString();
-            cmbDonVi.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[3].Value?.ToString();
-            txtGiaNhap.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[4].Value?.ToString();
-            txtGiaBan.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[5].Value?.ToString();
-            txtMaNV.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[6].Value?.ToString();
-            dtpNgayNhap.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[7].Value?.ToString();
-            cmbNcc.Text = dtgvWarehouse.Rows[e.RowIndex].Cells[8].Value?.ToString();
+            int i;
+            i = dtgvWarehouse.CurrentRow.Index;
+            txtMaSP.Text = dtgvWarehouse.Rows[i].Cells[0].Value?.ToString();
+            txtTenSP.Text = dtgvWarehouse.Rows[i].Cells[1].Value?.ToString();
+            txtSL.Text = dtgvWarehouse.Rows[i].Cells[2].Value?.ToString();
+            cmbDonVi.Text = dtgvWarehouse.Rows[i].Cells[3].Value?.ToString();
+            txtGiaNhap.Text = dtgvWarehouse.Rows[i].Cells[4].Value?.ToString();
+            txtGiaBan.Text = dtgvWarehouse.Rows[i].Cells[5].Value?.ToString();
+            txtMaNV.Text = dtgvWarehouse.Rows[i].Cells[6].Value?.ToString();
+            dtpNgayNhap.Text = dtgvWarehouse.Rows[i].Cells[7].Value?.ToString();
+            cmbNcc.Text = dtgvWarehouse.Rows[i].Cells[8].Value?.ToString();
         }
 
         private void btnTonKho_Click(object sender, EventArgs e)
@@ -387,6 +431,11 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             btnUpdate.Enabled = true;
             btnSave.Enabled = false;
             btnCancel.Enabled = false;
+        }
+       
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchData(txtSearch.Text); 
         }
     }
 }
