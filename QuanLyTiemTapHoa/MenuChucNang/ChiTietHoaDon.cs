@@ -18,7 +18,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
-        public static string mahd = "";
+        public static int mahd = 0;
         public static string tennv = "";
         public static string tensp = "";
         public static string tendv = "";
@@ -30,16 +30,16 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void loadData()
         {
-            command.CommandText = "select MaHD , TenNV from HoaDon,NhanVien";
+            command.CommandText = "select MaHD,TenNV from HoaDon,NhanVien";
             command.Connection = cnn;
             reader = command.ExecuteReader();
             bool temp = false;
             while (reader.Read())
             {
-                txtMaHD.Text = reader.GetString(0);
-                tennv = reader.GetString(0);
+                txtMaHD.Text = reader.GetInt32(0).ToString();
+                mahd = reader.GetInt32(0);
                 txtTenNV.Text = reader.GetString(1);
-                mahd = reader.GetString(1);
+                tennv = reader.GetString(1);
                 temp = true;
             }
             if (temp == false)
@@ -180,7 +180,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             {
                 MenuChucNang.BanHang banHang = new MenuChucNang.BanHang();
                 table.Clear();
-                this.Close();
+                this.Hide();
                 banHang.ShowDialog();
             }
         }

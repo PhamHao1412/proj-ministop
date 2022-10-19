@@ -33,9 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtMatKhau);
             this.panel1.Controls.Add(this.txtTaiKhoan);
-            this.panel1.Location = new System.Drawing.Point(120, 81);
+            this.panel1.Location = new System.Drawing.Point(175, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(324, 112);
             this.panel1.TabIndex = 0;
@@ -74,7 +74,6 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(214, 20);
             this.txtMatKhau.TabIndex = 1;
-            this.txtMatKhau.Text = "phuongnam2002";
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // txtTaiKhoan
@@ -83,37 +82,44 @@
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(214, 20);
             this.txtTaiKhoan.TabIndex = 0;
-            this.txtTaiKhoan.Text = "DerKaiser";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(222, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(218, 42);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "TÀI KHOẢN";
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(368, 199);
+            this.btnDangNhap.Image = global::QuanLyTiemTapHoa.Properties.Resources.đăng_nhập;
+            this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDangNhap.Location = new System.Drawing.Point(265, 198);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(76, 34);
+            this.btnDangNhap.Size = new System.Drawing.Size(135, 66);
             this.btnDangNhap.TabIndex = 1;
             this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(448, 321);
+            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Image = global::QuanLyTiemTapHoa.Properties.Resources.thoát;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.Location = new System.Drawing.Point(459, 323);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(95, 33);
+            this.btnExit.Size = new System.Drawing.Size(154, 74);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Thoát";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(253, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Tài khoản";
             // 
             // frmDangNhap
             // 
@@ -121,7 +127,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(555, 366);
+            this.ClientSize = new System.Drawing.Size(625, 409);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDangNhap);

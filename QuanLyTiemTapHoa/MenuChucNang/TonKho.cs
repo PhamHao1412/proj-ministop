@@ -98,7 +98,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         void Search()
         {
             command = cnn.CreateCommand();
-            command.CommandText = "select MaSP,TenSP,SoLuong,TenDV,GiaNhap,GiaBan,TenNCC from NhapKho n, NhaCungCap c,DonViSP d where n.MaNCC = c.MaNCC and n.MaDV= d.MaDV and MaSP = '" + txtSearch.Text + "' ";
+            command.CommandText = "select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNCC[Nhà cung cấp] from TonKho t,DonViSP d,NhaCungCap n where t.MaDV=d.MaDV and t.MaNCC=n.MaNCC and MaSP = '" + txtSearch.Text+ "'";
+            command.ExecuteNonQuery();
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);

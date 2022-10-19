@@ -63,6 +63,16 @@ namespace QuanLyTiemTapHoa.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap đăng_nhập {
+            get {
+                object obj = ResourceManager.GetObject("đăng nhập", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Đăng_xuất {
             get {
                 object obj = ResourceManager.GetObject("Đăng xuất", resourceCulture);
@@ -226,6 +236,16 @@ namespace QuanLyTiemTapHoa.Properties {
         internal static System.Drawing.Bitmap Thiết_lập {
             get {
                 object obj = ResourceManager.GetObject("Thiết lập", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thoát {
+            get {
+                object obj = ResourceManager.GetObject("thoát", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

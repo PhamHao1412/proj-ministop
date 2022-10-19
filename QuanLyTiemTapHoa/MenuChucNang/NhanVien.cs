@@ -34,7 +34,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             string nn = datetimeNgaySinh.Value.ToString("yyyy-MM-dd");
             command = cnn.CreateCommand();
-            command.CommandText = "insert into NhanVien values('"+txtMaNV.Text+"',N'"+txtHoTen.Text+"','"+cmbGioiTinh.Text+"','" + nn + "',N'"+txtDiaChi.Text+"','"+txtSDT.Text+"','"+txtCCCD.Text+"','"+txtEmail.Text+"','"+(cmbChucVu.SelectedIndex+1)+"')";
+            command.CommandText = "insert into NhanVien values('"+txtMaNV.Text+"',N'"+txtHoTen.Text+"',N'"+cmbGioiTinh.SelectedItem+"','" + nn + "',N'"+txtDiaChi.Text+"','"+txtSDT.Text+"','"+txtCCCD.Text+"','"+txtEmail.Text+"','"+(cmbChucVu.SelectedIndex+1)+"')";
             command.ExecuteNonQuery();
             loadData();
         }
@@ -48,7 +48,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         public void Update()
         {
             command = cnn.CreateCommand();
-            command.CommandText = "update NhanVien set TenNV = N'" + txtHoTen.Text + "',GioiTinh = N'" + cmbGioiTinh.Text + "',NgaySinh = '" + datetimeNgaySinh.Value.ToString() + "',DiaChi = N'" + txtDiaChi.Text + "',SDT = '" + txtSDT.Text + "',CCCD = '" + txtCCCD.Text + "',Email = '" + txtEmail.Text + "',MaCV = '" + (cmbChucVu.SelectedIndex + 1) + "' where MaNV = '"+txtMaNV.Text+"'";
+            command.CommandText = "update NhanVien set TenNV = N'" + txtHoTen.Text + "',GioiTinh = N'" + cmbGioiTinh.Text + "',NgaySinh = '" + datetimeNgaySinh.Value.ToString("yyyy-MM-dd") + "',DiaChi = N'" + txtDiaChi.Text + "',SDT = '" + txtSDT.Text + "',CCCD = '" + txtCCCD.Text + "',Email = '" + txtEmail.Text + "',MaCV = '" + (cmbChucVu.SelectedIndex + 1) + "' where MaNV = '"+txtMaNV.Text+"'";
             command.ExecuteNonQuery();
             loadData();
         }

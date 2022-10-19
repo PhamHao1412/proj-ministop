@@ -63,7 +63,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                     cnn.Open();
                     string nl = dtpNgayLap.Value.ToString("yyyy-MM-dd");
                     command = cnn.CreateCommand();
-                    command.CommandText = "insert into HoaDon(MaHD,NgayLap,MaNV,MaKH) values('" + txtMaHD.Text + "','" + nl + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
+                    command.CommandText = "insert into HoaDon(NgayLap,MaNV,MaKH) values('" + nl + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
                     command.ExecuteNonQuery();
                     loadData();
                 }
@@ -79,7 +79,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 else
                 {
                     command = cnn.CreateCommand();
-                    command.CommandText = "insert into HoaDon values('" + txtMaHD.Text + "','" + dtpNgayLap.Value + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
+                    command.CommandText = "insert into HoaDon values('" + dtpNgayLap.Value + "','" + txtMaNV.Text + "','" + txtKH.Text + "')";
                     command.ExecuteNonQuery();
                     loadData();
                 }

@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnTienThoi = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -132,18 +132,19 @@
             this.btnThanhToan.UseVisualStyleBackColor = true;
             this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
-            // button1
+            // btnHuy
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::QuanLyTiemTapHoa.Properties.Resources.làm_mới;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(184, 353);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 60);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Hủy";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnHuy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Image = global::QuanLyTiemTapHoa.Properties.Resources.làm_mới;
+            this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHuy.Location = new System.Drawing.Point(184, 353);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(132, 60);
+            this.btnHuy.TabIndex = 6;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // ThanhToan
             // 
@@ -153,7 +154,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnTienThoi);
             this.Controls.Add(this.btnThanhToan);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.txtTienTL);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtKhachDua);
@@ -176,7 +177,7 @@
         private System.Windows.Forms.TextBox txtKhachDua;
         private System.Windows.Forms.TextBox txtTienTL;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Button btnTienThoi;
         private System.Windows.Forms.Label label4;

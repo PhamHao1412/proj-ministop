@@ -34,7 +34,21 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            
+            MenuChucNang.Bill bill = new MenuChucNang.Bill();
+            this.Hide();
+            bill.ShowDialog();
+
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn có muốn quay trở về không ?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                MenuChucNang.BanHang banHang = new MenuChucNang.BanHang();
+                this.Hide();
+                banHang.ShowDialog();
+            }
         }
     }
 }

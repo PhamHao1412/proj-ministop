@@ -289,6 +289,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }
 
         }
+    
         void ClearInput()
         {
             txtMaSP.Text = txtTenSP.Text = txtSL.Text = txtGiaBan.Text = txtGiaNhap.Text = "";
