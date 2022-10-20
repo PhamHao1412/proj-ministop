@@ -63,7 +63,7 @@ namespace QuanLyTiemTapHoa
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbTime.Text = string.Format("Ngày: {0}\nGiờ: {1}",DateTime.Now.ToString("dd/MM/yyyy"),DateTime.Now.ToString("hh:mm:ss"));
-        }
+        } 
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {

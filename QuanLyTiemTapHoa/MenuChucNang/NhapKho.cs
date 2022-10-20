@@ -133,7 +133,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                         cnn.Open();
                         command = cnn.CreateCommand();
                         command.CommandText = "Insert into NhapKho values('" + txtMaSP.Text + "',N'" + txtTenSP.Text + "','" + txtSL.Text + "','" + (cmbDonVi.SelectedIndex + 1) + "','" + txtGiaNhap.Text + "','" + txtGiaBan.Text + "','" + txtMaNV.Text + "','" + nn + "','" + (cmbNcc.SelectedIndex + 1) + "')";
-                        command.ExecuteNonQuery();
+                        
+                    command.ExecuteNonQuery();
                         loadDataGirdViewWareHouse();
 
                     }
@@ -324,7 +325,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }
             else if (cmbDanhMuc.SelectedIndex == 5)
             {
-                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and NgayNhap like N'%" + searchVal + "%'";
+                comand.CommandText = "Select MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],GiaNhap[Giá nhập],GiaBan[Giá bán],TenNV[Nhân viên],NgayNhap[Ngày nhập],TenNCC[Nhà cung cấp] from NhapKho T,NhaCungCap N,DonViSP D,NhanVien NV WHERE  T.MaDV=D.MaDV and T.MaNCC=N.MaNCC and NV.MaNV=T.MaNV and NgayNhap like '%" + searchVal + "%'";
             }
             else
             {
@@ -394,15 +395,15 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             int i;
             i = dtgvWarehouse.CurrentRow.Index;
-            txtMaSP.Text = dtgvWarehouse.Rows[i].Cells[0].Value?.ToString();
-            txtTenSP.Text = dtgvWarehouse.Rows[i].Cells[1].Value?.ToString();
-            txtSL.Text = dtgvWarehouse.Rows[i].Cells[2].Value?.ToString();
-            cmbDonVi.Text = dtgvWarehouse.Rows[i].Cells[3].Value?.ToString();
-            txtGiaNhap.Text = dtgvWarehouse.Rows[i].Cells[4].Value?.ToString();
-            txtGiaBan.Text = dtgvWarehouse.Rows[i].Cells[5].Value?.ToString();
-            txtMaNV.Text = dtgvWarehouse.Rows[i].Cells[6].Value?.ToString();
-            dtpNgayNhap.Text = dtgvWarehouse.Rows[i].Cells[7].Value?.ToString();
-            cmbNcc.Text = dtgvWarehouse.Rows[i].Cells[8].Value?.ToString();
+            txtMaSP.Text = dtgvWarehouse.Rows[i].Cells[0].Value.ToString();
+            txtTenSP.Text = dtgvWarehouse.Rows[i].Cells[1].Value.ToString();
+            txtSL.Text = dtgvWarehouse.Rows[i].Cells[2].Value.ToString();
+            cmbDonVi.Text = dtgvWarehouse.Rows[i].Cells[3].Value.ToString();
+            txtGiaNhap.Text = dtgvWarehouse.Rows[i].Cells[4].Value.ToString();
+            txtGiaBan.Text = dtgvWarehouse.Rows[i].Cells[5].Value.ToString();
+            txtTenNV.Text = dtgvWarehouse.Rows[i].Cells[6].Value.ToString();
+            dtpNgayNhap.Text = dtgvWarehouse.Rows[i].Cells[7].Value.ToString();
+            cmbNcc.Text = dtgvWarehouse.Rows[i].Cells[8].Value.ToString();
         }
 
         private void btnTonKho_Click(object sender, EventArgs e)

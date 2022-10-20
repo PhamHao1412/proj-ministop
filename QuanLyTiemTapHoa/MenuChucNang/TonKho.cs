@@ -168,14 +168,13 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             int i;
             i = dtgvTonKho.CurrentRow.Index;
-            txtMaSP.Text = dtgvTonKho.Rows[i].Cells[0].Value?.ToString();
-            txtTenSp.Text = dtgvTonKho.Rows[i].Cells[1].Value?.ToString();
-            txtSL.Text = dtgvTonKho.Rows[i].Cells[2].Value?.ToString();
-            cmbDonVi.Text = dtgvTonKho.Rows[i].Cells[3].Value?.ToString();
-            txtGiaNhap.Text = dtgvTonKho.Rows[i].Cells[4].Value?.ToString();
-            txtGiaBan.Text = dtgvTonKho.Rows[i].Cells[5].Value?.ToString();
-            cmbNCC.Text = dtgvTonKho.Rows[i].Cells[6].Value?.ToString();
-            txtSearch.Text = dtgvTonKho.Rows[i].Cells[0].Value?.ToString();
+            txtMaSP.Text = dtgvTonKho.Rows[i].Cells[0].Value.ToString();
+            txtTenSp.Text = dtgvTonKho.Rows[i].Cells[1].Value.ToString();
+            txtSL.Text = dtgvTonKho.Rows[i].Cells[2].Value.ToString();
+            cmbDonVi.Text = dtgvTonKho.Rows[i].Cells[3].Value.ToString();
+            txtGiaNhap.Text = dtgvTonKho.Rows[i].Cells[4].Value.ToString();
+            txtGiaBan.Text = dtgvTonKho.Rows[i].Cells[5].Value.ToString();
+            cmbNCC.Text = dtgvTonKho.Rows[i].Cells[6].Value.ToString();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
