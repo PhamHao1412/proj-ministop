@@ -71,7 +71,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDelete.Image = global::QuanLyTiemTapHoa.Properties.Resources.Delete;
+            this.btnDelete.Image = global::QuanLyTiemTapHoa.Properties.Resources.xóa;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.Location = new System.Drawing.Point(608, 83);
             this.btnDelete.Name = "btnDelete";

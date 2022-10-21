@@ -119,6 +119,7 @@
     <Compile Include="MenuChucNang\TinhLuong.Designer.cs">
       <DependentUpon>TinhLuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CTHDReport.cs" />
     <Compile Include="Models\GioiTinh.cs" />
     <Compile Include="classConnect.cs" />
     <Compile Include="frmMenu.cs">
@@ -212,6 +213,7 @@
     <EmbeddedResource Include="MenuChucNang\NhapKho.resx">
       <DependentUpon>NhapKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuChucNang\rptBill.rdlc" />
     <EmbeddedResource Include="MenuChucNang\TaiKhoan.resx">
       <DependentUpon>TaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +246,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CTHD.datasource" />
+    <None Include="Properties\DataSources\CTHDReport.datasource" />
+    <None Include="Properties\DataSources\DonViSP.datasource" />
+    <None Include="Properties\DataSources\QLCuaHangTapHoaDataSet1.datasource" />
+    <None Include="Properties\DataSources\QLTapHoaDBContext.datasource" />
+    <None Include="Properties\DataSources\QuanLyTiemTapHoa.MenuChucNang.ChiTietHoaDon.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -357,5 +365,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

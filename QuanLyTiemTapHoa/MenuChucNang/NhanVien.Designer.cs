@@ -264,7 +264,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Image = global::QuanLyTiemTapHoa.Properties.Resources.Delete;
+            this.btnDelete.Image = global::QuanLyTiemTapHoa.Properties.Resources.xóa;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.Location = new System.Drawing.Point(278, 443);
             this.btnDelete.Name = "btnDelete";
@@ -304,7 +304,7 @@
             this.btnTKNV.Image = global::QuanLyTiemTapHoa.Properties.Resources.icons8_add_50;
             this.btnTKNV.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTKNV.Location = new System.Drawing.Point(109, 513);
-            this.btnTKNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTKNV.Margin = new System.Windows.Forms.Padding(2);
             this.btnTKNV.Name = "btnTKNV";
             this.btnTKNV.Size = new System.Drawing.Size(156, 61);
             this.btnTKNV.TabIndex = 6;

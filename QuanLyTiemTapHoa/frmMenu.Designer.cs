@@ -34,7 +34,6 @@
             this.lbUser = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnNhaCungCap = new System.Windows.Forms.Button();
             this.btnDonViSP = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.btnNhapKho = new System.Windows.Forms.Button();
             this.btnDonHang = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,27 +61,30 @@
             // lbChucVu
             // 
             this.lbChucVu.AutoSize = true;
+            this.lbChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChucVu.Location = new System.Drawing.Point(266, 43);
             this.lbChucVu.Name = "lbChucVu";
-            this.lbChucVu.Size = new System.Drawing.Size(47, 13);
+            this.lbChucVu.Size = new System.Drawing.Size(61, 19);
             this.lbChucVu.TabIndex = 2;
             this.lbChucVu.Text = "Chức vụ";
             // 
             // lbUser
             // 
             this.lbUser.AutoSize = true;
+            this.lbUser.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.Location = new System.Drawing.Point(266, 9);
             this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(82, 13);
+            this.lbUser.Size = new System.Drawing.Size(114, 19);
             this.lbUser.TabIndex = 1;
             this.lbUser.Text = "Tên người dùng";
             // 
             // lbTime
             // 
             this.lbTime.AutoSize = true;
+            this.lbTime.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.Location = new System.Drawing.Point(451, 9);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(96, 13);
+            this.lbTime.Size = new System.Drawing.Size(123, 19);
             this.lbTime.TabIndex = 0;
             this.lbTime.Text = "Thời Gian Hiện Tại";
             // 
@@ -101,17 +104,14 @@
             this.panel2.Size = new System.Drawing.Size(800, 365);
             this.panel2.TabIndex = 1;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // btnNhaCungCap
             // 
+            this.btnNhaCungCap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhaCungCap.Image = global::QuanLyTiemTapHoa.Properties.Resources.Nhà_cung_cấp;
             this.btnNhaCungCap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhaCungCap.Location = new System.Drawing.Point(427, 180);
+            this.btnNhaCungCap.Location = new System.Drawing.Point(434, 184);
             this.btnNhaCungCap.Name = "btnNhaCungCap";
-            this.btnNhaCungCap.Size = new System.Drawing.Size(120, 46);
+            this.btnNhaCungCap.Size = new System.Drawing.Size(141, 46);
             this.btnNhaCungCap.TabIndex = 9;
             this.btnNhaCungCap.Text = "Nhà cung cấp";
             this.btnNhaCungCap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -120,11 +120,12 @@
             // 
             // btnDonViSP
             // 
+            this.btnDonViSP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonViSP.Image = global::QuanLyTiemTapHoa.Properties.Resources.Tồn_kho;
             this.btnDonViSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDonViSP.Location = new System.Drawing.Point(427, 54);
+            this.btnDonViSP.Location = new System.Drawing.Point(434, 72);
             this.btnDonViSP.Name = "btnDonViSP";
-            this.btnDonViSP.Size = new System.Drawing.Size(120, 46);
+            this.btnDonViSP.Size = new System.Drawing.Size(141, 46);
             this.btnDonViSP.TabIndex = 8;
             this.btnDonViSP.Text = "Đơn vị SP";
             this.btnDonViSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,11 +134,12 @@
             // 
             // btnDangXuat
             // 
+            this.btnDangXuat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.Image = global::QuanLyTiemTapHoa.Properties.Resources.Đăng_xuất;
             this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangXuat.Location = new System.Drawing.Point(690, 309);
+            this.btnDangXuat.Location = new System.Drawing.Point(656, 316);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(107, 46);
+            this.btnDangXuat.Size = new System.Drawing.Size(141, 46);
             this.btnDangXuat.TabIndex = 7;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,9 +150,9 @@
             // 
             this.btnThongKe.Image = global::QuanLyTiemTapHoa.Properties.Resources.Thống_kê;
             this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKe.Location = new System.Drawing.Point(607, 180);
+            this.btnThongKe.Location = new System.Drawing.Point(614, 185);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(120, 46);
+            this.btnThongKe.Size = new System.Drawing.Size(141, 46);
             this.btnThongKe.TabIndex = 6;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -159,11 +161,12 @@
             // 
             // btnNhanVien
             // 
+            this.btnNhanVien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhanVien.Image = global::QuanLyTiemTapHoa.Properties.Resources.Nhân_viên;
             this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(607, 54);
+            this.btnNhanVien.Location = new System.Drawing.Point(614, 72);
             this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(120, 46);
+            this.btnNhanVien.Size = new System.Drawing.Size(141, 46);
             this.btnNhanVien.TabIndex = 5;
             this.btnNhanVien.Text = "Nhân viên";
             this.btnNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,11 +175,12 @@
             // 
             // btnTonKho
             // 
+            this.btnTonKho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTonKho.Image = global::QuanLyTiemTapHoa.Properties.Resources.Tồn_kho;
             this.btnTonKho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTonKho.Location = new System.Drawing.Point(242, 180);
+            this.btnTonKho.Location = new System.Drawing.Point(245, 184);
             this.btnTonKho.Name = "btnTonKho";
-            this.btnTonKho.Size = new System.Drawing.Size(120, 46);
+            this.btnTonKho.Size = new System.Drawing.Size(141, 46);
             this.btnTonKho.TabIndex = 4;
             this.btnTonKho.Text = "Tồn kho";
             this.btnTonKho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -185,11 +189,12 @@
             // 
             // btnNhapKho
             // 
+            this.btnNhapKho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapKho.Image = global::QuanLyTiemTapHoa.Properties.Resources.Nhập_kho;
             this.btnNhapKho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhapKho.Location = new System.Drawing.Point(242, 54);
+            this.btnNhapKho.Location = new System.Drawing.Point(245, 72);
             this.btnNhapKho.Name = "btnNhapKho";
-            this.btnNhapKho.Size = new System.Drawing.Size(120, 46);
+            this.btnNhapKho.Size = new System.Drawing.Size(141, 46);
             this.btnNhapKho.TabIndex = 3;
             this.btnNhapKho.Text = "Nhập kho";
             this.btnNhapKho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -198,11 +203,12 @@
             // 
             // btnDonHang
             // 
+            this.btnDonHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonHang.Image = global::QuanLyTiemTapHoa.Properties.Resources.Đơn_hàng;
             this.btnDonHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDonHang.Location = new System.Drawing.Point(58, 180);
+            this.btnDonHang.Location = new System.Drawing.Point(49, 184);
             this.btnDonHang.Name = "btnDonHang";
-            this.btnDonHang.Size = new System.Drawing.Size(120, 46);
+            this.btnDonHang.Size = new System.Drawing.Size(141, 46);
             this.btnDonHang.TabIndex = 2;
             this.btnDonHang.Text = "Đơn hàng";
             this.btnDonHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -211,16 +217,21 @@
             // 
             // btnBanHang
             // 
+            this.btnBanHang.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBanHang.Image = global::QuanLyTiemTapHoa.Properties.Resources.Sản_phẩm;
             this.btnBanHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBanHang.Location = new System.Drawing.Point(58, 54);
+            this.btnBanHang.Location = new System.Drawing.Point(49, 72);
             this.btnBanHang.Name = "btnBanHang";
-            this.btnBanHang.Size = new System.Drawing.Size(120, 46);
+            this.btnBanHang.Size = new System.Drawing.Size(141, 46);
             this.btnBanHang.TabIndex = 0;
             this.btnBanHang.Text = "Bán hàng";
             this.btnBanHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBanHang.UseVisualStyleBackColor = true;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMenu
             // 

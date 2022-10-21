@@ -18,7 +18,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
-        public static int mahd = 0;
+        public static int mahd = BanHang.mahd;
         public static string tennv = "";
         public static string tensp = "";
         public static string tendv = "";
@@ -30,7 +30,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void loadData()
         {
-            command.CommandText = "select MaHD,TenNV from HoaDon,NhanVien";
+            command.CommandText = "select MaHD,TenNV from HoaDon hd,NhanVien where hd.MaHD = '"+mahd+"'";
             command.Connection = cnn;
             reader = command.ExecuteReader();
             bool temp = false;
@@ -43,7 +43,14 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 temp = true;
             }
             if (temp == false)
-                MessageBox.Show("Không tìm thấy");  
+                MessageBox.Show("Không tìm thấy");
+            cnn.Close();
+            command = cnn.CreateCommand();
+            command.CommandText = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],DonGia[Đơn giá],GiamGia[Giảm giá],ThanhTien[Thành tiền] from CTHD c,DonViSP d where c.MaDV=d.MaDV and MaHD = '" + txtMaHD.Text+"'";
+            adapter.SelectCommand = command;
+            table.Clear();
+            adapter.Fill(table);
+            dgvHoaDon.DataSource = table;
         }
         void Add()
         {
@@ -180,6 +187,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             {
                 MenuChucNang.BanHang banHang = new MenuChucNang.BanHang();
                 table.Clear();
+                txtMaHD.ResetText();
                 this.Hide();
                 banHang.ShowDialog();
             }

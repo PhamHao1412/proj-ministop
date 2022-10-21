@@ -71,9 +71,10 @@
             // 
             // dtpNgayLap
             // 
+            this.dtpNgayLap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayLap.Location = new System.Drawing.Point(122, 85);
             this.dtpNgayLap.Name = "dtpNgayLap";
-            this.dtpNgayLap.Size = new System.Drawing.Size(236, 20);
+            this.dtpNgayLap.Size = new System.Drawing.Size(254, 26);
             this.dtpNgayLap.TabIndex = 4;
             // 
             // label5
@@ -88,10 +89,11 @@
             // 
             // txtTenNV
             // 
+            this.txtTenNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenNV.Location = new System.Drawing.Point(122, 220);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.ReadOnly = true;
-            this.txtTenNV.Size = new System.Drawing.Size(236, 20);
+            this.txtTenNV.Size = new System.Drawing.Size(254, 26);
             this.txtTenNV.TabIndex = 2;
             // 
             // label4
@@ -106,24 +108,27 @@
             // 
             // txtKH
             // 
+            this.txtKH.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKH.Location = new System.Drawing.Point(122, 287);
             this.txtKH.Name = "txtKH";
-            this.txtKH.Size = new System.Drawing.Size(236, 20);
+            this.txtKH.Size = new System.Drawing.Size(254, 26);
             this.txtKH.TabIndex = 3;
             // 
             // txtMaNV
             // 
+            this.txtMaNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNV.Location = new System.Drawing.Point(122, 149);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.ReadOnly = true;
-            this.txtMaNV.Size = new System.Drawing.Size(236, 20);
+            this.txtMaNV.Size = new System.Drawing.Size(254, 26);
             this.txtMaNV.TabIndex = 1;
             // 
             // txtMaHD
             // 
+            this.txtMaHD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaHD.Location = new System.Drawing.Point(122, 21);
             this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(236, 20);
+            this.txtMaHD.Size = new System.Drawing.Size(254, 26);
             this.txtMaHD.TabIndex = 0;
             // 
             // label3

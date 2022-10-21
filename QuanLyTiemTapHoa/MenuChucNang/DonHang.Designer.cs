@@ -28,36 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvDonHang = new System.Windows.Forms.DataGridView();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.cmbMaHD = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tìm kiếm";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(83, 21);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(240, 20);
-            this.txtSearch.TabIndex = 2;
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
+           this.btnSearch.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.Location = new System.Drawing.Point(369, 7);
+            this.btnSearch.Location = new System.Drawing.Point(539, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(117, 46);
             this.btnSearch.TabIndex = 3;
@@ -87,16 +71,36 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // cmbMaHD
+            // 
+            this.cmbMaHD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMaHD.FormattingEnabled = true;
+            this.cmbMaHD.Location = new System.Drawing.Point(132, 17);
+            this.cmbMaHD.Name = "cmbMaHD";
+            this.cmbMaHD.Size = new System.Drawing.Size(332, 27);
+            this.cmbMaHD.TabIndex = 7;
+            this.cmbMaHD.SelectedIndexChanged += new System.EventHandler(this.cmbMaHD_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 19);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Chi tiết hóa đơn";
+            // 
             // DonHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 507);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbMaHD);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.dgvDonHang);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.label1);
             this.Name = "DonHang";
             this.Text = "Đơn hàng";
             this.Load += new System.EventHandler(this.DonHang_Load);
@@ -107,11 +111,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgvDonHang;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.ComboBox cmbMaHD;
+        private System.Windows.Forms.Label label2;
     }
 }

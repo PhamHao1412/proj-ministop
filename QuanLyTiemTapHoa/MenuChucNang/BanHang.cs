@@ -20,6 +20,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         SqlDataReader reader;
         public static string manv = "";
         public static string tennv = "";
+        public static int mahd = 0;
         public BanHang()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             table.Clear();
             adapter.Fill(table);
             dgvHD.DataSource = table;
+            txtMaHD.Text = Convert.ToString(dgvHD.RowCount);
         }
         void Add()
         {
@@ -104,26 +106,44 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command.ExecuteNonQuery();
             loadData();
         }
-        private void btnLapHD_Click(object sender, EventArgs e)
+        void load()
         {
-            if(txtMaHD.Text == "")
+            if (txtMaHD.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập mã hóa đơn", "Thông báo");
             }
             else
             {
-                
+                cnn = new SqlConnection(classConnect.sql);
+                cnn.Open();
+                command.CommandText = " select MaHD from HoaDon where MaHD = '" + txtMaHD.Text + "'";
+                command.Connection = cnn;
+                reader = command.ExecuteReader();
+                bool temp = false;
+                while (reader.Read())
+                {
+                    txtMaHD.Text = reader.GetInt32(0).ToString();
+                    mahd = reader.GetInt32(0);
+                    temp = true;
+                }
                 MenuChucNang.ChiTietHoaDon frmCTHD = new MenuChucNang.ChiTietHoaDon();
                 this.Hide();
                 frmCTHD.ShowDialog();
-            }  
+            }
+            
+        }
+        private void btnLapHD_Click(object sender, EventArgs e)
+        {
+            load(); 
         }
 
         private void BanHang_Load(object sender, EventArgs e)
         {
+
             cnn = new SqlConnection(classConnect.sql);
             cnn.Open();
             loadData();
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
