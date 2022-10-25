@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,18 +19,64 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlDataReader reader;
-        public static int mahd = BanHang.mahd;
+        public static int mahd = 0;
         public static string tennv = "";
         public static string tensp = "";
         public static string tendv = "";
+        public static decimal thanhtien = 0;
         public static decimal giaban = 0;
         public static decimal giamgia = 0;
+        public static decimal tongtien = 0;
+        decimal sl;
         public ChiTietHoaDon()
         {
             InitializeComponent();
         }
+        DataTable TruyVan(String s)
+        {
+            SqlDataAdapter da;
+            DataSet ds = new DataSet();
+            try
+            {
+                da = new SqlDataAdapter(s, cnn);
+                da.Fill(ds, "KQ");
+                cnn.Close();
+                return ds.Tables["KQ"];
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi truy vấn CSDL. ");
+                return new DataTable();
+            }
+        }
+
+        void autoTinhTien()
+        {
+            
+            sl = 0;
+            giamgia = 0;
+            thanhtien = 0;
+            if(txtSL.Text =="" || txtGiamGia.Text == "" || txtDonGia.Text == "")
+            {
+                giaban = 0;
+                sl = 0;
+                giamgia = 0;
+            }
+            else
+            {
+                giaban = Convert.ToDecimal(txtDonGia.Text);
+                sl = Convert.ToDecimal(txtSL.Text);
+                giamgia = Convert.ToDecimal(txtGiamGia.Text);
+                
+            }
+            thanhtien = giaban * sl - giamgia;
+            txtThanhTien.Text = Convert.ToString(thanhtien);
+        }
+
         void loadData()
         {
+            tongtien = 0;
+            mahd = BanHang.mahd;
             command.CommandText = "select MaHD,TenNV from HoaDon hd,NhanVien where hd.MaHD = '"+mahd+"'";
             command.Connection = cnn;
             reader = command.ExecuteReader();
@@ -44,6 +91,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }
             if (temp == false)
                 MessageBox.Show("Không tìm thấy");
+            
             cnn.Close();
             command = cnn.CreateCommand();
             command.CommandText = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],DonGia[Đơn giá],GiamGia[Giảm giá],ThanhTien[Thành tiền] from CTHD c,DonViSP d where c.MaDV=d.MaDV and MaHD = '" + txtMaHD.Text+"'";
@@ -51,18 +99,32 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             table.Clear();
             adapter.Fill(table);
             dgvHoaDon.DataSource = table;
+            
+            string s = "select ThanhTien from CTHD where MaHD = '"+txtMaHD.Text+"'";
+            SqlCommand sqlCommand = new SqlCommand(s, cnn);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            dataTable = TruyVan(s);
+            for(int i= 0; i < dataTable.Rows.Count; i++)
+            {
+                string tien = dataTable.Rows[i][0].ToString();
+                tongtien = tongtien + Convert.ToDecimal(tien);
+
+            }
+            txtTongCong.Text = Convert.ToString(tongtien);
         }
+
         void Add()
         {
             command = cnn.CreateCommand();
-            command.CommandText = "insert into CTHD values('"+txtMaHD.Text+"','"+txtMaSP.Text+"','"+txtTenSP.Text+"','"+txtSL.Text+"','"+(cmbDonViSP.SelectedIndex+1)+"','"+txtDonGia.Text+"','"+txtGiamGia.Text+"','"+txtThanhTien.Text+"')";
+            command.CommandText = "insert into CTHD values('"+txtMaHD.Text+"','"+txtMaSP.Text+"',N'"+txtTenSP.Text+"','"+txtSL.Text+"','"+(cmbDonViSP.SelectedIndex+1)+"','"+txtDonGia.Text+"','"+txtGiamGia.Text+"','"+txtThanhTien.Text+"')";
             command.ExecuteNonQuery();
             command.CommandText = "update TonKho set soluong = soluong - '" + txtSL.Text+"'where MaSP = '"+txtMaSP.Text+"'";
             command.ExecuteNonQuery();
             loadData();
             cnn.Close();
-            loadHD();
         }
+
         void Delete()
         {
             cnn.Open();
@@ -71,39 +133,9 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command.ExecuteNonQuery();
             command.CommandText = "update TonKho set soluong = soluong + '" + txtSL.Text + "'where MaSP = '" + txtMaSP.Text + "'";
             command.ExecuteNonQuery();
-            loadHD();
+            loadData();
         }
-        void loadHD()
-        {
-            command = cnn.CreateCommand();
-            command.CommandText = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm] , TenSP[Tên sản phẩm] , SoLuong[Số lượng] ,TenDV[Đơn vị] ,DonGia[Đơn giá] , GiamGia[Giảm giá] , ThanhTien[Thành tiền]  from CTHD,DonViSP where MaHD = '"+txtMaHD.Text+ "'and DonViSP.MaDV = CTHD.MaDV";
-            adapter.SelectCommand = command;
-            table.Clear();
-            adapter.Fill(table);
-            dgvHoaDon.DataSource = table;
-        }
-        void Search()
-        {
-            cnn.Close();
-            cnn.Open();
-            command.CommandText = "select TenSP,TenDV,GiaBan from NhapKho,DonViSP where NhapKho.MaDV = DonViSP.MaDV and MaSP='"+txtMaSP.Text+"'";
-            command.Connection = cnn;
-            reader = command.ExecuteReader();
-            bool temp = false;
-            while (reader.Read())
-            {
-                txtTenSP.Text = reader.GetString(0);
-                tensp = reader.GetString(0);
-                cmbDonViSP.Text = reader.GetString(1);
-                tendv = reader.GetString(1);
-                txtDonGia.Text = Convert.ToString(reader.GetDecimal(2));
-                giaban = reader.GetDecimal(2);
-                temp = true;
-            }
-            if (temp == false)
-                MessageBox.Show("Không tìm thấy");
 
-        }
         private void ChiTietHoaDon_Load(object sender, EventArgs e)
         {
             cnn.Open();
@@ -118,19 +150,10 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             cnn.Close();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            Search();
-            cnn.Close();
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             cnn.Open();
             Add();
-            decimal total ;
-            total = Convert.ToDecimal(txtTongCong.Text) + Convert.ToDecimal(txtThanhTien.Text);
-            txtTongCong.Text = Convert.ToString(total);
             txtMaSP.Clear();
             txtTenSP.Clear();
             txtSL.Clear();
@@ -190,6 +213,68 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 txtMaHD.ResetText();
                 this.Hide();
                 banHang.ShowDialog();
+            }
+        }
+
+        private void txtMaSP_TextChanged(object sender, EventArgs e)
+        {
+            string sql = "select TenSP  from TonKho where MaSP = '" + txtMaSP.Text + "' ";
+            SqlCommand cmd = new SqlCommand(sql, cnn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dt = TruyVan(sql);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                txtTenSP.Text = dt.Rows[i][0].ToString();
+            }
+
+            string sql2 = "select TenDV from TonKho t,DonViSP d where t.MaDV=d.MaDV and MaSP = '" + txtMaSP.Text + "' ";
+            SqlCommand cmd2 = new SqlCommand(sql2, cnn);
+            SqlDataAdapter adapter2 = new SqlDataAdapter(cmd2);
+            DataTable dt2 = new DataTable();
+            dt2 = TruyVan(sql2);
+            for (int i = 0; i < dt2.Rows.Count; i++)
+            {
+                cmbDonViSP.Text = dt2.Rows[i][0].ToString();
+            }
+
+            string sql3 = "select GiaBan from TonKho where MaSP = '" + txtMaSP.Text + "' ";
+            SqlCommand cmd3 = new SqlCommand(sql, cnn);
+            SqlDataAdapter adapter3 = new SqlDataAdapter(cmd3);
+            DataTable dt3 = new DataTable();
+            dt3 = TruyVan(sql3);
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                txtDonGia.Text = dt3.Rows[i][0].ToString();
+            }
+            autoTinhTien();
+        }
+
+        private void txtThanhTien_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtSL_TextChanged(object sender, EventArgs e)
+        {
+            autoTinhTien();
+        }
+
+        private void txtGiamGia_TextChanged(object sender, EventArgs e)
+        {
+            autoTinhTien();
+        }
+
+        private void txtSL_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+
+            }
+            if(e.KeyChar == 8 )
+            {
+                e.Handled = false;
             }
         }
     }

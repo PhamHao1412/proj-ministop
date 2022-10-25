@@ -52,12 +52,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTongCong = new System.Windows.Forms.TextBox();
-            this.btnTinhTien = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
@@ -113,6 +111,7 @@
             this.txtThanhTien.ReadOnly = true;
             this.txtThanhTien.Size = new System.Drawing.Size(239, 26);
             this.txtThanhTien.TabIndex = 8;
+            this.txtThanhTien.TextChanged += new System.EventHandler(this.txtThanhTien_TextChanged);
             // 
             // txtGiamGia
             // 
@@ -121,6 +120,8 @@
             this.txtGiamGia.Name = "txtGiamGia";
             this.txtGiamGia.Size = new System.Drawing.Size(239, 26);
             this.txtGiamGia.TabIndex = 7;
+            this.txtGiamGia.Text = "0";
+            this.txtGiamGia.TextChanged += new System.EventHandler(this.txtGiamGia_TextChanged);
             // 
             // label7
             // 
@@ -168,6 +169,9 @@
             this.txtSL.Name = "txtSL";
             this.txtSL.Size = new System.Drawing.Size(239, 26);
             this.txtSL.TabIndex = 4;
+            this.txtSL.Text = "1";
+            this.txtSL.TextChanged += new System.EventHandler(this.txtSL_TextChanged);
+            this.txtSL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSL_KeyPress);
             // 
             // txtTenSP
             // 
@@ -194,6 +198,7 @@
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.Size = new System.Drawing.Size(239, 26);
             this.txtMaSP.TabIndex = 2;
+            this.txtMaSP.TextChanged += new System.EventHandler(this.txtMaSP_TextChanged);
             // 
             // label3
             // 
@@ -226,9 +231,9 @@
             // dgvHoaDon
             // 
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDon.Location = new System.Drawing.Point(516, 12);
+            this.dgvHoaDon.Location = new System.Drawing.Point(399, 6);
             this.dgvHoaDon.Name = "dgvHoaDon";
-            this.dgvHoaDon.Size = new System.Drawing.Size(470, 353);
+            this.dgvHoaDon.Size = new System.Drawing.Size(610, 353);
             this.dgvHoaDon.TabIndex = 6;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
             // 
@@ -304,20 +309,6 @@
             this.txtTongCong.Text = "0";
             this.txtTongCong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // btnTinhTien
-            // 
-            this.btnTinhTien.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTinhTien.Image = global::QuanLyTiemTapHoa.Properties.Resources.Tính_tiền;
-            this.btnTinhTien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTinhTien.Location = new System.Drawing.Point(399, 225);
-            this.btnTinhTien.Name = "btnTinhTien";
-            this.btnTinhTien.Size = new System.Drawing.Size(111, 55);
-            this.btnTinhTien.TabIndex = 14;
-            this.btnTinhTien.Text = "Tính tiền";
-            this.btnTinhTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTinhTien.UseVisualStyleBackColor = true;
-            this.btnTinhTien.Click += new System.EventHandler(this.btnTinhTien_Click);
-            // 
             // btnThanhToan
             // 
             this.btnThanhToan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -373,20 +364,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::QuanLyTiemTapHoa.Properties.Resources.Search;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(399, 91);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(111, 55);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // ChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,7 +371,6 @@
             this.ClientSize = new System.Drawing.Size(1021, 546);
             this.Controls.Add(this.txtTongCong);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnTinhTien);
             this.Controls.Add(this.txtTenNV);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnExit);
@@ -405,7 +381,6 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvHoaDon);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.groupBox1);
             this.Name = "ChiTietHoaDon";
             this.Text = "Chi tiết hóa đơn";
@@ -434,7 +409,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvHoaDon;
         private System.Windows.Forms.Button btnUpdate;
@@ -447,7 +421,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbDonViSP;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnTinhTien;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtTongCong;
     }

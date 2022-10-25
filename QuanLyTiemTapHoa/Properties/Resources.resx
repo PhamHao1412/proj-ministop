@@ -118,32 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="thoát" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thoát.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="thanh toán" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thanh toán.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Nhập kho" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nhập kho.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Thêm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thêm.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tồn kho" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Tồn kho.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="xóa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\xóa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Đăng xuất" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Đăng xuất.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="trờ về" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trờ về.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lập hóa đơn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lập hóa đơn.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thống kê" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thống kê.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Tồn kho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tồn kho.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lưu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lưu.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Nhập kho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nhập kho.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Đăng xuất" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Đăng xuất.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thanh toán1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thanh toán.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nhà cung cấp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nhà cung cấp.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ok.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="làm mới" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\làm mới.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,49 +151,61 @@
   <data name="Đơn hàng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Đơn hàng.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nhân viên" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nhân viên.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Trang chính" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Trang chính.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nhà cung cấp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nhà cung cấp.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sửa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sửa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Tính tiền1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tính tiền.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Thiết lập" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết lập.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="thanh toán" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thanh toán.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sản phẩm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sản phẩm.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tính tiền" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Tính tiền.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="trờ về" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trờ về.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lưu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lưu.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Trang chủ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Trang chủ.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ok.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Nhân viên" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nhân viên.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="đăng nhập" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\đăng nhập.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tính tiền" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tính tiền.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-add-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-add-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="đăng nhập" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\đăng nhập.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sửa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sửa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thống kê" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thống kê.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trang chính" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Trang chính.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thêm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thêm.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xóa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xóa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sản phẩm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sản phẩm.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thoát" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thoát.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lập hóa đơn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lập hóa đơn.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sản phẩm1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sản phẩm.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -113,6 +113,30 @@
     <Compile Include="MenuChucNang\TaiKhoan.Designer.cs">
       <DependentUpon>TaiKhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuChucNang\ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuChucNang\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuChucNang\ThongKeDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuChucNang\ThongKeDoanhThu.Designer.cs">
+      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuChucNang\ThongKeHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuChucNang\ThongKeHoaDon.Designer.cs">
+      <DependentUpon>ThongKeHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuChucNang\ThongKeSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuChucNang\ThongKeSanPham.Designer.cs">
+      <DependentUpon>ThongKeSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuChucNang\TinhLuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,12 +169,6 @@
     </Compile>
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\KhachHang.cs" />
-    <Compile Include="MenuChucNang\ThongKe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuChucNang\ThongKe.Designer.cs">
-      <DependentUpon>ThongKe.cs</DependentUpon>
-    </Compile>
     <Compile Include="MenuChucNang\DonHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,9 +235,6 @@
     <EmbeddedResource Include="MenuChucNang\TaiKhoan.resx">
       <DependentUpon>TaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuChucNang\ThongKe.resx">
-      <DependentUpon>ThongKe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MenuChucNang\DonHang.resx">
       <DependentUpon>DonHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +243,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuChucNang\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuChucNang\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuChucNang\ThongKeDoanhThu.resx">
+      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuChucNang\ThongKeHoaDon.resx">
+      <DependentUpon>ThongKeHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuChucNang\ThongKeSanPham.resx">
+      <DependentUpon>ThongKeSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuChucNang\TinhLuong.resx">
       <DependentUpon>TinhLuong.cs</DependentUpon>

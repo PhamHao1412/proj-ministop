@@ -30,6 +30,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             table.Clear();
             adapter.Fill(table);
             dgvDonHang.DataSource = table;
+            cmbMaHD.SelectedIndex = 0;
         }
         DataTable TruyVan(String s)
         {
@@ -70,15 +71,22 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         void searchData()
         {
-            SqlCommand comand = new SqlCommand();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table1 = new DataTable();
-            comand = cnn.CreateCommand();
-            comand.CommandText = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],DonGia[Đơn giá],GiamGia[Giảm giá],ThanhTien[Thành tiền] from CTHD c,DonViSP d where c.MaDV=d.MaDV and MaHD = '"+cmbMaHD.SelectedItem+"' ";
-            adapter.SelectCommand = comand;
-            table1.Clear();
-            adapter.Fill(table1);
-            dgvDonHang.DataSource = table1;
+            if(cmbMaHD.SelectedIndex == 0)
+            {
+                loadData();
+            }
+            else
+            {
+                SqlCommand comand = new SqlCommand();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table1 = new DataTable();
+                comand = cnn.CreateCommand();
+                comand.CommandText = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],DonGia[Đơn giá],GiamGia[Giảm giá],ThanhTien[Thành tiền] from CTHD c,DonViSP d where c.MaDV=d.MaDV and MaHD = '" + cmbMaHD.SelectedItem + "' ";
+                adapter.SelectCommand = comand;
+                table1.Clear();
+                adapter.Fill(table1);
+                dgvDonHang.DataSource = table1;
+            }
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -86,10 +94,21 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             this.Hide();
             frmMenu.ShowDialog();
         }
-
         private void cmbMaHD_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchData();
         }
+
+        private void cmbMaHD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void dgvDonHang_ReadOnlyChanged(object sender, EventArgs e)
+        {
+            Enabled = true;
+        }
+
+
     }
 }

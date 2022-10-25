@@ -8,21 +8,96 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.Entity.Infrastructure;
 
 namespace QuanLyTiemTapHoa
 {
     public partial class frmDangNhap : Form
     {
         SqlConnection connect = classConnect.connect;
+
         public frmDangNhap()
         {
             InitializeComponent();
         }
+        void SavePW()
+        {
+            SqlCommand comand = new SqlCommand();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table1 = new DataTable();
+            comand = connect.CreateCommand();
+            comand.CommandText = "select MatKhau from TaiKhoan where TenTK  = '" + txtTaiKhoan.Text + "' ";
+            adapter.SelectCommand = comand;
+            table1.Clear();
+            adapter.Fill(table1);
+            for (int i = 0; i < table1.Rows.Count; i++)
+            {
+                txtMatKhau.Text = table1.Rows[i][0].ToString();
+
+            }
+        }
+        void DangNhap()
+        {
+            TenTK = txtTaiKhoan.Text;
+            string sql = "select * from TaiKhoan where TenTK='" + txtTaiKhoan.Text + "' and MatKhau='" + txtMatKhau.Text + "'";
+            SqlDataAdapter sqldata = new SqlDataAdapter(sql, connect);
+            DataTable datatable = new DataTable();
+            sqldata.Fill(datatable);
+            if (datatable.Rows.Count == 1)
+            {
+                MessageBox.Show("Đăng nhập thành công");
+                frmMenu menu = new frmMenu();
+                this.Hide();
+                menu.ShowDialog();
+
+            }
+            else
+            {
+                if (txtTaiKhoan.Text == "" && txtMatKhau.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập đầy đủ dữ liệu");
+                }
+                else if (txtTaiKhoan.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập tài khoản");
+                }
+                else if (txtMatKhau.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập mật khẩu");
+                }
+                else
+                {
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                }
+
+            }
+
+        }
         public static string TenTK = "";
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(connect.State == ConnectionState.Closed)
+            if (connect.State == ConnectionState.Closed)
+            {
                 connect.Open();
+                txtTaiKhoan.Text = Properties.Settings.Default.username;
+                txtMatKhau.Text = Properties.Settings.Default.password;
+                if (Properties.Settings.Default.password != "")
+                {
+                    checkBox1.Checked = true;
+                }
+            }
+
+            else
+            {
+                txtTaiKhoan.Text = Properties.Settings.Default.username;
+                txtMatKhau.Text = Properties.Settings.Default.password;
+            }
+
+
+
+
+
+
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -33,38 +108,36 @@ namespace QuanLyTiemTapHoa
             }
         }
 
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            TenTK = txtTaiKhoan.Text;
-            string sql = "select * from TaiKhoan where TenTK='" + txtTaiKhoan.Text + "' and MatKhau='" + txtMatKhau.Text + "'";
-            SqlDataAdapter sqldata = new SqlDataAdapter(sql,connect);
-            DataTable datatable = new DataTable();
-            sqldata.Fill(datatable);
-            if(datatable.Rows.Count == 1)
+
+            DangNhap();
+
+        }
+
+        private void txtTaiKhoan_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtTaiKhoan.Text != "" && txtMatKhau.Text != "")
             {
-                MessageBox.Show("Đăng nhập thành công");
-                frmMenu menu = new frmMenu();
-                this.Hide();
-                menu.ShowDialog();
-            }
-            else
-            {
-               if(txtTaiKhoan.Text == "" && txtMatKhau.Text == "")
-               {
-                    MessageBox.Show("Bạn chưa nhập đầy đủ dữ liệu");
-               }
-               else if(txtTaiKhoan.Text == "")
-               {
-                    MessageBox.Show("Bạn chưa nhập tài khoản");
-               }
-               else if (txtMatKhau.Text == "")
-               {
-                    MessageBox.Show("Bạn chưa nhập mật khẩu");
-               }
-               else
-               {
-                   MessageBox.Show("Sai tài khoản hoặc mật khẩu");
-               }
+                if (checkBox1.Checked == true)
+                {
+                    string user = txtTaiKhoan.Text;
+                    string pwd = txtMatKhau.Text;
+                    Properties.Settings.Default.username = user;
+                    Properties.Settings.Default.password = pwd;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings.Default.Reset();
+                }
             }
         }
     }

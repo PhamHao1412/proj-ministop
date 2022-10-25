@@ -166,6 +166,7 @@
             this.dgvHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHD.Location = new System.Drawing.Point(429, 35);
             this.dgvHD.Name = "dgvHD";
+            this.dgvHD.ReadOnly = true;
             this.dgvHD.RowHeadersWidth = 51;
             this.dgvHD.Size = new System.Drawing.Size(496, 365);
             this.dgvHD.TabIndex = 6;
