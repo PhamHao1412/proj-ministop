@@ -49,7 +49,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 return new DataTable();
             }
         }
-
+       
         void autoTinhTien()
         {
             

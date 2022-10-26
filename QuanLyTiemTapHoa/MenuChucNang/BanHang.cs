@@ -27,6 +27,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         public void loadData()
         {
+            
             command.CommandText = "select MaNV,TenNV from NhanVien";
             command.Connection = cnn;
             reader = command.ExecuteReader();

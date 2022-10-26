@@ -14,26 +14,42 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class Bill : Form
     {
+        SqlConnection cnn = classConnect.connect;
+        SqlCommand command = new SqlCommand();
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataTable table = new DataTable();
+        SqlDataReader reader;
+        public static int mahd = 0;
         public Bill()
         {
             InitializeComponent();
         }
-        SqlConnection connection = classConnect.connect;
-        SqlDataAdapter  adapter = new SqlDataAdapter();
-        //public DataTable getAllCTHD()
-        //{
-        //    DataTable dataTable = new DataTable();
-        //    string sql = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],DonGia[Đơn giá],GiamGia[Giảm giá],ThanhTien[Thành tiền] from CTHD c,DonViSP d where c.MaDV=d.MaDV";
-        //    connection.Open();
-        //    adapter = new SqlDataAdapter(sql,connection);
+        void loadBill()
+        {
+            cnn.Open();
+            mahd = BanHang.mahd;
+            command.CommandText = "select MaHD from HoaDon where MaHD = '" + mahd + "'";
+            command.Connection = cnn;
+            reader = command.ExecuteReader();
+            bool temp = false;
+            while (reader.Read())
+            {
+                txtMaHD.Text = reader.GetInt32(0).ToString();
+                mahd = reader.GetInt32(0);
+                temp = true;
+            }
+            if (temp == false)
+                MessageBox.Show("Không tìm thấy");
+            cnn.Close();
+        }
 
-        //    adapter.Fill(dataTable);
-        //    return dataTable;
-        //}
+       
+    
         private void Bill_Load(object sender, EventArgs e)
         {
-            string sql = "select MaHD,MaSP,TenSP,SoLuong,TenDV,DonGia,GiamGia,ThanhTien from CTHD c,DonViSP d where c.MaDV=d.MaDV";
-            adapter = new SqlDataAdapter(sql, connection);
+            loadBill();
+            string sql = "select MaHD,MaSP,TenSP,SoLuong,TenDV,DonGia,GiamGia,ThanhTien from CTHD c,DonViSP d where c.MaDV=d.MaDV and MaHD = '" + txtMaHD.Text + "'";
+            adapter = new SqlDataAdapter(sql, cnn);
             DataSet ds = new DataSet();
             adapter.Fill(ds,"CTHDReport");
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyTiemTapHoa.MenuChucNang.rptBill.rdlc";
@@ -43,6 +59,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             reportDataSource.Value = ds.Tables["CTHDReport"];
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
             this.reportViewer1.RefreshReport();
+            txtMaHD.Hide();
+            label1.Hide();
         }
     }
 }
