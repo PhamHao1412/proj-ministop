@@ -47,20 +47,22 @@ namespace QuanLyTiemTapHoa.MenuChucNang
     
         private void Bill_Load(object sender, EventArgs e)
         {
+            
             loadBill();
-            string sql = "select MaHD,MaSP,TenSP,SoLuong,TenDV,DonGia,GiamGia,ThanhTien from CTHD c,DonViSP d where c.MaDV=d.MaDV and MaHD = '" + txtMaHD.Text + "'";
+            ReportParameterCollection reportParameters = new ReportParameterCollection();
+            reportParameters.Add(new ReportParameter("ReportParameter1", txtMaHD.Text));
+            reportViewer1.LocalReport.SetParameters(reportParameters);
+            string sql = "select MaSP,TenSP,SoLuong,TenDV,DonGia,GiamGia,ThanhTien from CTHD c,DonViSP d where c.MaDV=d.MaDV and MaHD = '" + txtMaHD.Text + "'";
             adapter = new SqlDataAdapter(sql, cnn);
             DataSet ds = new DataSet();
-            adapter.Fill(ds,"CTHDReport");
+            adapter.Fill(ds, "CTHDReport");
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyTiemTapHoa.MenuChucNang.rptBill.rdlc";
             ReportDataSource reportDataSource = new ReportDataSource();
             reportDataSource.Name = "DataSetCTHD";
-            //reportDataSource.Value = getAllCTHD();
             reportDataSource.Value = ds.Tables["CTHDReport"];
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
             this.reportViewer1.RefreshReport();
             txtMaHD.Hide();
-            label1.Hide();
         }
     }
 }
