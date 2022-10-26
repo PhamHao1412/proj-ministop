@@ -20,22 +20,28 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         }
         SqlConnection connection = classConnect.connect;
         SqlDataAdapter  adapter = new SqlDataAdapter();
-        public DataTable getAllCTHD()
-        {
-            DataTable dataTable = new DataTable();
-            string sql = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],DonGia[Đơn giá],GiamGia[Giảm giá],ThanhTien[Thành tiền] from CTHD c,DonViSP d where c.MaDV=d.MaDV";
-            connection.Open();
-            adapter = new SqlDataAdapter(sql,connection);
-            adapter.Fill(dataTable);
-            return dataTable;
-        }
+        //public DataTable getAllCTHD()
+        //{
+        //    DataTable dataTable = new DataTable();
+        //    string sql = "select MaHD[Mã hóa đơn],MaSP[Mã sản phẩm],TenSP[Tên sản phẩm],SoLuong[Số lượng],TenDV[Đơn vị],DonGia[Đơn giá],GiamGia[Giảm giá],ThanhTien[Thành tiền] from CTHD c,DonViSP d where c.MaDV=d.MaDV";
+        //    connection.Open();
+        //    adapter = new SqlDataAdapter(sql,connection);
+
+        //    adapter.Fill(dataTable);
+        //    return dataTable;
+        //}
         private void Bill_Load(object sender, EventArgs e)
         {
-            reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyTiemTapHoa.rptBill.rdlc";
+            string sql = "select MaHD,MaSP,TenSP,SoLuong,TenDV,DonGia,GiamGia,ThanhTien from CTHD c,DonViSP d where c.MaDV=d.MaDV";
+            adapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds,"CTHDReport");
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyTiemTapHoa.MenuChucNang.rptBill.rdlc";
             ReportDataSource reportDataSource = new ReportDataSource();
             reportDataSource.Name = "DataSetCTHD";
-            reportDataSource.Value = getAllCTHD();
-            reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+            //reportDataSource.Value = getAllCTHD();
+            reportDataSource.Value = ds.Tables["CTHDReport"];
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
             this.reportViewer1.RefreshReport();
         }
     }

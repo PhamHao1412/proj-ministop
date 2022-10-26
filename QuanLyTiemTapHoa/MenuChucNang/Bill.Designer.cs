@@ -33,7 +33,7 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyTiemTapHoa.MenuChucNang.rptBill.rdlc";
+            
             this.reportViewer1.Location = new System.Drawing.Point(29, 12);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
