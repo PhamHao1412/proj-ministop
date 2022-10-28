@@ -13,6 +13,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class BanHang : Form
     {
+        #region Global Varibles
         SqlConnection cnn = classConnect.connect;
         SqlCommand command = new SqlCommand();
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -25,6 +26,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             InitializeComponent();
         }
+        #endregion
+        #region Methods
         public void loadData()
         {
             
@@ -133,6 +136,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }
             
         }
+        #endregion
+        #region Events
         private void btnLapHD_Click(object sender, EventArgs e)
         {
             load(); 
@@ -191,4 +196,5 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             txtKH.Clear();
         }
     }
+    #endregion
 }

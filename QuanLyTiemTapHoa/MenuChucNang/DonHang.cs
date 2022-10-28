@@ -14,6 +14,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class DonHang : Form
     {
+        #region Globas Varibles
         SqlConnection cnn = classConnect.connect;
         SqlCommand command;
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -22,6 +23,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             InitializeComponent();
         }
+        #endregion
+        #region Methods
         void loadData()
         {
             command = cnn.CreateCommand();
@@ -88,6 +91,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 dgvDonHang.DataSource = table1;
             }
         }
+        #endregion
+        #region Events
         private void btnThoat_Click(object sender, EventArgs e)
         {
             frmMenu frmMenu = new frmMenu();
@@ -109,6 +114,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             Enabled = true;
         }
 
-
     }
+    #endregion
 }

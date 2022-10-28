@@ -20,22 +20,6 @@ namespace QuanLyTiemTapHoa
         {
             InitializeComponent();
         }
-        void SavePW()
-        {
-            SqlCommand comand = new SqlCommand();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table1 = new DataTable();
-            comand = connect.CreateCommand();
-            comand.CommandText = "select MatKhau from TaiKhoan where TenTK  = '" + txtTaiKhoan.Text + "' ";
-            adapter.SelectCommand = comand;
-            table1.Clear();
-            adapter.Fill(table1);
-            for (int i = 0; i < table1.Rows.Count; i++)
-            {
-                txtMatKhau.Text = table1.Rows[i][0].ToString();
-
-            }
-        }
         void DangNhap()
         {
             TenTK = txtTaiKhoan.Text;
@@ -116,12 +100,6 @@ namespace QuanLyTiemTapHoa
 
         }
 
-        private void txtTaiKhoan_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (txtTaiKhoan.Text != "" && txtMatKhau.Text != "")
@@ -139,6 +117,12 @@ namespace QuanLyTiemTapHoa
                     Properties.Settings.Default.Reset();
                 }
             }
+        }
+
+        private void txtTaiKhoan_TextChanged(object sender, EventArgs e)
+        {
+           checkBox1.Checked = false;
+
         }
     }
 }

@@ -14,6 +14,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class ChiTietHoaDon : Form
     {
+        #region Global Varibles
         SqlConnection cnn = classConnect.connect;
         SqlCommand command = new SqlCommand();
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -32,6 +33,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             InitializeComponent();
         }
+        #endregion
+        #region Methods
         DataTable TruyVan(String s)
         {
             SqlDataAdapter da;
@@ -135,7 +138,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             command.ExecuteNonQuery();
             loadData();
         }
-
+        #endregion
+        #region Events
         private void ChiTietHoaDon_Load(object sender, EventArgs e)
         {
             cnn.Open();
@@ -278,4 +282,5 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }
         }
     }
+    #endregion
 }

@@ -32,7 +32,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             InitializeComponent();
         }
         #endregion
-
         #region Methods
         void loadData()
         {
@@ -341,7 +340,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 
 
         #endregion
-
         #region Events
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -420,10 +418,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             this.Hide();
             frmMenu.ShowDialog();
         }
-
-
-        #endregion
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             groupBox1.Enabled = true;
@@ -433,10 +427,13 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             btnSave.Enabled = false;
             btnCancel.Enabled = false;
         }
-       
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            searchData(txtSearch.Text); 
+            searchData(txtSearch.Text);
         }
     }
+    #endregion
+
+
 }

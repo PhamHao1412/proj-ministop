@@ -14,13 +14,17 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class TaiKhoan : Form
     {
+        #region Global Varibles
         SqlConnection connect = classConnect.connect;
         SqlCommand command = new SqlCommand();
+        public static string TenTK = "";
+
         public TaiKhoan()
         {
             InitializeComponent();
         }
-        public static string TenTK = "";
+        #endregion
+        #region Methods
         DataTable TruyVan(String s)
         {
             SqlDataAdapter da;
@@ -71,6 +75,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }
             
         }
+        #endregion
+        #region Events
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             TenTK = txtTaiKhoan.Text;
@@ -127,4 +133,5 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             }    
         }
     }
+    #endregion
 }

@@ -13,6 +13,7 @@ namespace QuanLyTiemTapHoa.MenuChucNang
 {
     public partial class NhanVien : Form
     {
+        #region Global Varibles
         SqlConnection cnn = classConnect.connect;
         SqlCommand command;
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -21,6 +22,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
         {
             InitializeComponent();
         }
+        #endregion
+        #region Methods
         void loadData()
         {
             command = cnn.CreateCommand();
@@ -67,7 +70,8 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             //kết nối vào datagird view
             loadData();
         }
-
+        #endregion
+        #region Events
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Add();
@@ -113,4 +117,5 @@ namespace QuanLyTiemTapHoa.MenuChucNang
             frtk.ShowDialog();
         }
     }
+    #endregion
 }

@@ -38,8 +38,6 @@ namespace QuanLyTiemTapHoa.MenuChucNang
                 mahd = reader.GetInt32(0);
                 temp = true;
             }
-            if (temp == false)
-                MessageBox.Show("Không tìm thấy");
             cnn.Close();
         }
 
